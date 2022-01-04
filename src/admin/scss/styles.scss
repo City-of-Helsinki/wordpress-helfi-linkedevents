@@ -1,0 +1,26 @@
+@import '../../common/scss/blocks/events';
+
+body.wp-admin .editor-styles-wrapper {
+
+  .wp-block-helsinki-linkedevents-grid {
+
+    .events__title {
+      margin-top: 0;
+    }
+
+    .hds-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .event__detail {
+      color: #000;
+
+      p {
+        margin-top: 0;
+      }
+    }
+
+  }
+
+}

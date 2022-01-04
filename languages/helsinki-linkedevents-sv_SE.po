@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Helsinki Linked Events\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 11:49+0000\n"
+"PO-Revision-Date: 2022-01-04 13:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: Swedish\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.1\n"
+"X-Domain: helsinki-linkedevents"
+
+#: class/Api/Filters/Prices.php:11
+msgid "All"
+msgstr "Allt"
+
+#. Author of the plugin
+msgid "ArtCloud"
+msgstr "ArtCloud"
+
+#: views/metabox/linked-events-list.php:4
+msgid "Events"
+msgstr "Evenemang"
+
+#: assets/admin/js/scripts.js:118 src/admin/js/block/events.js:132
+msgid "events"
+msgstr "Evenemang"
+
+#: assets/admin/js/scripts.js:50 src/admin/js/block/events.js:47
+msgid "Events configuration"
+msgstr "Händelsekonfiguration"
+
+#: block/events.php:326 class/Api/Filters/Prices.php:12
+msgid "Free"
+msgstr "Fri"
+
+#: class/Api/Entities/Event.php:168
+msgid "Fri"
+msgstr "Fre"
+
+#: block/events.php:68
+msgid "Helsinki"
+msgstr "Helsingfors"
+
+#: assets/admin/js/scripts.js:115 src/admin/js/block/events.js:129
+msgid "Helsinki - Events Grid"
+msgstr "Helsingfors - Evenemang Grid"
+
+#. Name of the plugin
+msgid "Helsinki Linked Events"
+msgstr "Helsingfors Linked Events"
+
+#. Author URI of the plugin
+msgid "https://www.artcloud.fi"
+msgstr "https://www.artcloud.fi"
+
+#. Description of the plugin
+msgid "Integration with the Helsinki Linked Events API."
+msgstr "Integration med Helsinki Linked Events API."
+
+#: cpt/linked-events-config.php:93
+msgid "Keywords"
+msgstr "Nyckelord"
+
+#: cpt/linked-events-config.php:97
+msgid "Languages"
+msgstr "Språk"
+
+#: assets/admin/js/scripts.js:45 src/admin/js/block/events.js:42
+msgid "Loading"
+msgstr "Lastning"
+
+#: cpt/linked-events-config.php:105
+msgid "Locations"
+msgstr "Platser"
+
+#: class/Api/Entities/Event.php:164
+msgid "Mon"
+msgstr "Mån"
+
+#: class/Api/Filters/Prices.php:13
+msgid "Paid"
+msgstr "Betalt"
+
+#: cpt/linked-events-config.php:109
+msgid "Price"
+msgstr "Pris"
+
+#: cpt/linked-events-config.php:101
+msgid "Publishers"
+msgstr "Förlag"
+
+#: class/Api/Entities/Event.php:169
+msgid "Sat"
+msgstr "Lö"
+
+#: assets/admin/js/scripts.js:34 src/admin/js/block/events.js:30
+msgid "Select configuration"
+msgstr "Välj konfiguration"
+
+#: assets/admin/js/scripts.js:66 src/admin/js/block/events.js:66
+msgid "Settings"
+msgstr "Inställningar"
+
+#: block/events.php:198
+msgid "Show more events"
+msgstr "Visa fler evenemang"
+
+#: class/Api/Entities/Event.php:170
+msgid "Sun"
+msgstr "Sön"
+
+#: class/Api/Entities/Event.php:167
+msgid "Thu"
+msgstr "Tors"
+
+#: class/Api/Entities/Event.php:191 class/Api/Entities/Event.php:202
+msgctxt "time of clock"
+msgid "at"
+msgstr "vid"
+
+#: assets/admin/js/scripts.js:77 src/admin/js/block/events.js:86
+msgid "Title"
+msgstr "Rubrik"
+
+#: class/Api/Entities/Event.php:165
+msgid "Tue"
+msgstr "Tis"
+
+#: class/Api/Entities/Event.php:166
+msgid "Wed"
+msgstr "Ons"

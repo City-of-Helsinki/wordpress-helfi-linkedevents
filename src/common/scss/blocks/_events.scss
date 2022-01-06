@@ -11,6 +11,10 @@
 
   .events__title {}
 
+  .hds-container {
+    padding: 0;
+  }
+
   .events__container {}
 
   .events__grid {
@@ -72,6 +76,7 @@
 
     p {
       margin-bottom: 0;
+      word-break: break-word;
     }
 
     .event__image {

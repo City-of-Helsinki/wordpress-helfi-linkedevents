@@ -263,7 +263,12 @@ function render_event_card( $event ) {
 
 function render_event_image( $event ) {
 	$img = $event->primary_image();
-	$html = $img->html_img();
+	if ($img != false) {
+		$html = $img->html_img();
+	}
+	else {
+		$html = false;
+	}
 
 	return apply_filters(
 		'helsinki_linkedevents_event_image',

@@ -41,7 +41,19 @@ class Event extends Entity {
      * @return string|false
      */
     public function permalink() {
-        return 'https://tapahtumat.hel.fi/events/' . $this->id();
+        $accepted_langs = array(
+            'fi',
+            'en',
+            'sv'
+        );
+        $language_code = "";
+        if (function_exists("pll_current_language")) {
+            $language_code = pll_current_language();
+            if (!in_array($language_code, $accepted_langs)) {
+                $language_code = 'fi';
+            }
+        }
+        return 'https://tapahtumat.hel.fi/'. $language_code .'/events/' . $this->id();
     }
 
     /**

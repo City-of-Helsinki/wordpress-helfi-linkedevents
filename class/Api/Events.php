@@ -44,25 +44,34 @@ class Events extends Client {
 		$options = Places::cache_items();
 		$out = array();
 		foreach ( $items as $item ) {
-			$location = $item->location ?? $item['location'] ?? array();
-			if ( is_object( $location ) ) {
-				$location = (array) $location;
-			}
-			$location = ! empty( $location['@id'] ) ? basename( $location['@id'] ) : '';
-			if ( $location && isset( $options[$location] ) ) {
-				if ( is_string( $options[$location] ) ) {
-					$options[$location] = json_decode( $options[$location], true );
+			$location_id = self::event_item_location_id( $item );
+			if ( $location_id && isset( $options[$location_id] ) ) {
+				if ( is_string( $options[$location_id] ) ) {
+					$options[$location_id] = json_decode( $options[$location_id], true );
 				}
 
 				if ( is_object( $item ) ) {
-					$item->location = $options[$location];
+					$item->location = $options[$location_id];
 				} else {
-					$item['location'] = $options[$location];
+					$item['location'] = $options[$location_id];
 				}
 			}
 			$out[] = $item;
 		}
 		return $out;
+	}
+
+	protected static function event_item_location_id( $item ) {
+		$location = self::event_item_location_data( $item );
+		return ! empty( $location['@id'] ) ? basename( $location['@id'] ) : '';
+	}
+
+	protected static function event_item_location_data( $item ) {
+		if ( is_object( $item ) ) {
+			return property_exists( $item, 'location' ) ? (array) $item->location : [];
+		} else {
+			return $item['location'] ?? [];
+		}
 	}
 
 	protected static function event_params( int $post_id ) {

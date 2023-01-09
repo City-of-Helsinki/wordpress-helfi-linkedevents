@@ -56,7 +56,7 @@ class Image extends Entity {
 			return '';
 		}
 		return sprintf(
-			'<img src="%s" alt="%s">',
+			'<img src="%s" alt="%s" aria-hidden="true">',
 			esc_url( $this->url() ),
 			esc_attr( $this->alt_text() )
 		);

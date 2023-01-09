@@ -62,7 +62,6 @@
   }
 
   .events__more {
-    text-align: center;
     margin: 0;
 
     .button {}
@@ -125,9 +124,12 @@
     .event__detail {
       align-items: flex-start;
       display: flex;
-      font-size: 16px;
 
       > * {}
+
+      label {
+          font-weight: 700;
+      }
 
       .event__icon {
         flex: 0 0 24px;

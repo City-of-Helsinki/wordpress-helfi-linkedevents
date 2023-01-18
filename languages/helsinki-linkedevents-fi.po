@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2022-01-04 13:36+0000\n"
+"PO-Revision-Date: 2023-01-09 06:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: Suomi\n"
 "Language: fi\n"
@@ -14,6 +14,10 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
+
+#: block/events.php:376
+msgid "(Link leads to external service)"
+msgstr "(Linkki johtaa ulkoiseen palveluun)"
 
 #: class/Api/Filters/Prices.php:11
 msgid "All"
@@ -35,11 +39,11 @@ msgstr "tapahtumat"
 msgid "Events configuration"
 msgstr "Tapahtumien määrittely"
 
-#: block/events.php:326 class/Api/Filters/Prices.php:12
+#: block/events.php:328 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Maksuton"
 
-#: class/Api/Entities/Event.php:168
+#: class/Api/Entities/Event.php:186
 msgid "Fri"
 msgstr "Pe"
 
@@ -75,11 +79,16 @@ msgstr "Kielet"
 msgid "Loading"
 msgstr "Ladataan"
 
+#: block/events.php:317
+#| msgid "Location"
+msgid "Location:"
+msgstr "Paikka:"
+
 #: cpt/linked-events-config.php:105
 msgid "Locations"
 msgstr "Paikat"
 
-#: class/Api/Entities/Event.php:164
+#: class/Api/Entities/Event.php:182
 msgid "Mon"
 msgstr "Ma"
 
@@ -91,11 +100,15 @@ msgstr "Maksullinen"
 msgid "Price"
 msgstr "Hinta"
 
+#: block/events.php:339
+msgid "Price:"
+msgstr "Hinta:"
+
 #: cpt/linked-events-config.php:101
 msgid "Publishers"
 msgstr "Julkaisijat"
 
-#: class/Api/Entities/Event.php:169
+#: class/Api/Entities/Event.php:187
 msgid "Sat"
 msgstr "La"
 
@@ -111,27 +124,32 @@ msgstr "Asetukset"
 msgid "Show more events"
 msgstr "Näytä lisää tapahtumia"
 
-#: class/Api/Entities/Event.php:170
+#: class/Api/Entities/Event.php:188
 msgid "Sun"
 msgstr "Su"
 
-#: class/Api/Entities/Event.php:167
+#: class/Api/Entities/Event.php:185
 msgid "Thu"
 msgstr "To"
 
-#: class/Api/Entities/Event.php:191 class/Api/Entities/Event.php:202
+#: class/Api/Entities/Event.php:209 class/Api/Entities/Event.php:220
 msgctxt "time of clock"
 msgid "at"
 msgstr "klo"
+
+#: block/events.php:303
+#| msgid "Time"
+msgid "Time:"
+msgstr "Aika:"
 
 #: assets/admin/js/scripts.js:77 src/admin/js/block/events.js:86
 msgid "Title"
 msgstr "Otsikko"
 
-#: class/Api/Entities/Event.php:165
+#: class/Api/Entities/Event.php:183
 msgid "Tue"
 msgstr "Ti"
 
-#: class/Api/Entities/Event.php:166
+#: class/Api/Entities/Event.php:184
 msgid "Wed"
 msgstr "Ke"

@@ -35,6 +35,10 @@ function blocks() {
 					'type' => 'string',
 					'default' => '',
 				),
+				'anchor' => array(
+					'type'    => 'string',
+					'default' => '',
+				)	
 			),
 		)
 	);
@@ -157,16 +161,22 @@ function render_events_grid( $attributes ) {
 		return;
 	}
 
+	$id = '';
+	if (!empty($attributes['anchor'])) {
+		$id = 'id="'.esc_attr($attributes['anchor']).'"';
+	}	
+
 	$per_page = events_per_page();
 
 	return sprintf(
-		'<div class="helsinki-events events">
+		'<div %s class="helsinki-events events">
 			<div class="hds-container">
 				%s
 				<div class="events__container events__grid">%s</div>
 				%s
 			</div>
 		</div>',
+		$id,
 		render_events_title( $attributes['title'] ?? '', $attributes['configID'] ),
 		render_grid_events( array_slice(
 			$events, 0, $per_page, false

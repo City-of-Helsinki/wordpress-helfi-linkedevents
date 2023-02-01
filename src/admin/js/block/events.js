@@ -121,6 +121,12 @@
     }
   }
 
+  function save() {
+    return function(props) {
+		return null;
+	  };
+	}
+
   /**
     * Register
     */
@@ -137,12 +143,17 @@
 		attributes: {
 			configID: {
 				type: 'string',
-        default: 0,
+				default: 0,
 			},
 			title: {
 				type: 'string',
-        default: '',
+				default: '',
 			},
+			anchor: {
+				type: 'string',
+				default: '',
+			},
+
 		},
 		edit: edit(),
 	});

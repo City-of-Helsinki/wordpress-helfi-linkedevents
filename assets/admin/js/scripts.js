@@ -105,6 +105,12 @@
       return createElement(Fragment, {}, inspectorControls(props), preview(props));
     };
   }
+
+  function save() {
+    return function (props) {
+      return null;
+    };
+  }
   /**
     * Register
     */
@@ -126,6 +132,10 @@
         default: 0
       },
       title: {
+        type: 'string',
+        default: ''
+      },
+      anchor: {
         type: 'string',
         default: ''
       }

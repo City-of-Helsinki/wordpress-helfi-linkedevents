@@ -3,7 +3,7 @@
 /**
   * Plugin Name: Helsinki Linked Events
   * Description: Integration with the Helsinki Linked Events API.
-  * Version: 1.4.0
+  * Version: 1.5.0
   * License: MIT
   * Requires at least: 5.7
   * Requires PHP:      7.1
@@ -25,7 +25,7 @@ function init() {
 	/**
 	  * Constants
 	  */
-	define( __NAMESPACE__ . '\\PLUGIN_VERSION', '1.4.0' );
+	define( __NAMESPACE__ . '\\PLUGIN_VERSION', '1.5.0' );
 	define( __NAMESPACE__ . '\\PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 	define( __NAMESPACE__ . '\\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 	define( __NAMESPACE__ . '\\PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

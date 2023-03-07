@@ -1,7 +1,6 @@
 {
 	"name": "city-of-helsinki/wordpress-helfi-linkedevents",
 	"type": "wordpress-plugin",
-	"version": "master",
 	"authors": [
 		{
       "name": "ArtCloud",

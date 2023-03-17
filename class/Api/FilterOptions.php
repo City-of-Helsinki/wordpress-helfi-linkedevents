@@ -3,7 +3,6 @@
 namespace CityOfHelsinki\WordPress\LinkedEvents\Api;
 
 use CityOfHelsinki\WordPress\LinkedEvents\CacheManager;
-use CityOfHelsinki\WordPress\LinkedEvents\Api\FilterOptions;
 
 class FilterOptions extends Client {
 
@@ -12,7 +11,29 @@ class FilterOptions extends Client {
 	protected static $transientExpiration = DAY_IN_SECONDS;
 
 	public static function cache_items() {
-		return CacheManager::load( static::$transientName );
+		$cache = CacheManager::load( static::$transientName );
+
+		if( empty( $cache ) ) {
+			$cache = self::all(
+				static::$apiEndpoint,
+				array( 'sort' => 'name' )
+			);
+
+			if ( ! $cache ) {
+				return array();
+			}
+	
+			$filtered = static::before_store($cache);
+			CacheManager::store(
+				static::$transientName,
+				$filtered,
+				static::$transientExpiration
+			);
+			
+			return $filtered;
+		}
+
+		return $cache;
 	}
 
 	public static function options() {

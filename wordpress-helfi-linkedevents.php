@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 
+textdomain();
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\init', 100 );
 function init() {
 
@@ -44,10 +45,18 @@ function init() {
 	/**
 	  * Actions & filters
 	  */
-	add_action( 'init', __NAMESPACE__ . '\\textdomain' );
+	//add_action( 'init', __NAMESPACE__ . '\\textdomain' );
 
 	/**
 	  * Plugin ready
 	  */
 	do_action( 'helsinki_linkedevents_init' );
+}
+
+function textdomain() {
+	load_plugin_textdomain(
+		'helsinki-linkedevents',
+		false,
+		dirname( plugin_basename( __FILE__ ) ) . '/languages'
+	);
 }

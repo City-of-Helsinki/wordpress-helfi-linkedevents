@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 06:39+0000\n"
+"POT-Creation-Date: 2023-03-22 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:376
+#: block/events.php:386
 msgid "(Link leads to external service)"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:118 src/admin/js/block/events.js:132
+#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:138
 msgid "events"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Events configuration"
 msgstr ""
 
-#: block/events.php:328 class/Api/Filters/Prices.php:12
+#: block/events.php:338 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr ""
 
@@ -48,12 +48,16 @@ msgstr ""
 msgid "Fri"
 msgstr ""
 
-#: block/events.php:68
+#: block/events.php:72
 msgid "Helsinki"
 msgstr ""
 
-#: assets/admin/js/scripts.js:115 src/admin/js/block/events.js:129
-msgid "Helsinki - Events Grid"
+#: block/events.php:16 assets/admin/js/scripts.js:121
+msgid "Helsinki - Events"
+msgstr ""
+
+#: src/admin/js/block/events.js:135
+msgid "Helsinki - Eventsssssss"
 msgstr ""
 
 #. Name of the plugin
@@ -80,7 +84,7 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: block/events.php:317
+#: block/events.php:327
 msgid "Location:"
 msgstr ""
 
@@ -96,11 +100,21 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
+#: cpt/linked-events-config.php:22
+msgctxt "Post type general name"
+msgid "Events"
+msgstr ""
+
+#: cpt/linked-events-config.php:23
+msgctxt "Post type singular name"
+msgid "Event"
+msgstr ""
+
 #: cpt/linked-events-config.php:109
 msgid "Price"
 msgstr ""
 
-#: block/events.php:339
+#: block/events.php:349
 msgid "Price:"
 msgstr ""
 
@@ -120,7 +134,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: block/events.php:198
+#: block/events.php:208
 msgid "Show more events"
 msgstr ""
 
@@ -137,7 +151,7 @@ msgctxt "time of clock"
 msgid "at"
 msgstr ""
 
-#: block/events.php:303
+#: block/events.php:313
 msgid "Time:"
 msgstr ""
 

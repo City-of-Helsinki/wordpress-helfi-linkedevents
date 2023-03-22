@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2023-01-09 06:39+0000\n"
+"PO-Revision-Date: 2023-03-22 09:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: Suomi\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:376
+#: block/events.php:386
 msgid "(Link leads to external service)"
 msgstr "(Linkki johtaa ulkoiseen palveluun)"
 
@@ -31,7 +31,7 @@ msgstr "ArtCloud"
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: assets/admin/js/scripts.js:118 src/admin/js/block/events.js:132
+#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:138
 msgid "events"
 msgstr "tapahtumat"
 
@@ -39,7 +39,7 @@ msgstr "tapahtumat"
 msgid "Events configuration"
 msgstr "Tapahtumien määrittely"
 
-#: block/events.php:328 class/Api/Filters/Prices.php:12
+#: block/events.php:338 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Maksuton"
 
@@ -47,13 +47,18 @@ msgstr "Maksuton"
 msgid "Fri"
 msgstr "Pe"
 
-#: block/events.php:68
+#: block/events.php:72
 msgid "Helsinki"
 msgstr "Helsinki"
 
-#: assets/admin/js/scripts.js:115 src/admin/js/block/events.js:129
-msgid "Helsinki - Events Grid"
-msgstr "Helsinki - Tapahtumaruudukko"
+#: block/events.php:16 assets/admin/js/scripts.js:121
+#| msgid "Helsinki - Events Grid"
+msgid "Helsinki - Events"
+msgstr "Helsinki - Tapahtumat"
+
+#: src/admin/js/block/events.js:135
+msgid "Helsinki - Eventsssssss"
+msgstr "Helsinki - Tapahtumat"
 
 #. Name of the plugin
 msgid "Helsinki Linked Events"
@@ -79,7 +84,7 @@ msgstr "Kielet"
 msgid "Loading"
 msgstr "Ladataan"
 
-#: block/events.php:317
+#: block/events.php:327
 #| msgid "Location"
 msgid "Location:"
 msgstr "Paikka:"
@@ -96,11 +101,21 @@ msgstr "Ma"
 msgid "Paid"
 msgstr "Maksullinen"
 
+#: cpt/linked-events-config.php:22
+msgctxt "Post type general name"
+msgid "Events"
+msgstr "Tapahtumat"
+
+#: cpt/linked-events-config.php:23
+msgctxt "Post type singular name"
+msgid "Event"
+msgstr "Tapahtuma"
+
 #: cpt/linked-events-config.php:109
 msgid "Price"
 msgstr "Hinta"
 
-#: block/events.php:339
+#: block/events.php:349
 msgid "Price:"
 msgstr "Hinta:"
 
@@ -120,7 +135,7 @@ msgstr "Valitse määrittely"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: block/events.php:198
+#: block/events.php:208
 msgid "Show more events"
 msgstr "Näytä lisää tapahtumia"
 
@@ -137,7 +152,7 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "klo"
 
-#: block/events.php:303
+#: block/events.php:313
 #| msgid "Time"
 msgid "Time:"
 msgstr "Aika:"

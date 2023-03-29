@@ -118,10 +118,10 @@
 
   registerBlockType('helsinki-linkedevents/grid', {
     apiVersion: 2,
-    title: __('Helsinki - Events Grid', 'helsinki-linkedevents'),
+    title: __('Helsinki - Events', 'helsinki-linkedevents'),
     category: 'helsinki-linkedevents',
     icon: 'calendar-alt',
-    keywords: [__('events', 'helsinki-linkedevents')],
+    keywords: [__('events', 'helsinki-linkedevents'), 'linked events', 'Helsinki - Events Grid'],
     supports: {
       html: false,
       anchor: true

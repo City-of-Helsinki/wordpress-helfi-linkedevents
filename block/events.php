@@ -13,7 +13,7 @@ use WP_Block_Editor_Context;
 function blocks() {
 	return array(
 		'grid' => array(
-			'title' => __( 'Helsinki - Events', 'hds-wp' ),
+			'title' => __( 'Helsinki - Events', 'helsinki-linkedevents' ),
 			'category' => 'helsinki-linkedevents',
 			'dependencies' => array(
 				'wp-blocks',
@@ -107,6 +107,12 @@ function admin_assets( string $hook ) {
 		$version,
 		true
 	);
+
+	wp_set_script_translations(
+        'helsinki-linkedevents-scripts',
+        'helsinki-linkedevents',
+        Plugin\plugin_path() . 'languages'
+    );
 
 	wp_enqueue_style(
 		'helsinki-linkedevents-tyles',

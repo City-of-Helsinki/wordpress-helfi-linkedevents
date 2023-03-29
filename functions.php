@@ -45,11 +45,3 @@ function autoloader( $class ) {
 		require_once $file;
 	}
 }
-
-function textdomain() {
-	load_plugin_textdomain(
-		'helsinki-linkedevents',
-		false,
-		dirname( plugin_basename( __FILE__ ) ) . '/languages'
-	);
-}

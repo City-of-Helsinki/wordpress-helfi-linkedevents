@@ -19,8 +19,8 @@ function register() {
 		'linked_events_config',
 		array(
 	        'labels'             => array(
-		        'name'                  => _x( 'Helsinki Events', 'Post type general name', 'textdomain' ),
-		        'singular_name'         => _x( 'Helsinki Event', 'Post type singular name', 'textdomain' ),
+		        'name'                  => _x( 'Events', 'Post type general name', 'helsinki-linkedevents' ),
+		        'singular_name'         => _x( 'Event', 'Post type singular name', 'helsinki-linkedevents' ),
 		    ),
 	        'public'             => false,
 	        'publicly_queryable' => false,

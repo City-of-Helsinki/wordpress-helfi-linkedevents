@@ -4,7 +4,7 @@
   * Plugin Name: Helsinki Linked Events
   * Description: Integration with the Helsinki Linked Events API.
   * Version: 1.7.0
-  * License: MIT
+  * License: GPLv3
   * Requires at least: 5.7
   * Requires PHP:      7.1
   * Author: ArtCloud

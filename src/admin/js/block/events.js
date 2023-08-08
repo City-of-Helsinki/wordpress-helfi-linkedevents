@@ -66,7 +66,6 @@
           title: __( 'Settings', 'helsinki-linkedevents' ),
           initialOpen: true,
         },
-        titleTextControl(props),
         configSelectControl(props)
       )
     );
@@ -95,17 +94,73 @@
     );
   }
 
+  function hdsContentTextRich(props, config) {
+    return wp.element.createElement(
+      wp.blockEditor.RichText, {
+        tagName: 'p',
+        className: config.className ? config.className : 'content__text',
+        value: config.textAttribute ? props.attributes[config.textAttribute] : props.attributes.contentText,
+        onChange: function (value) {
+          props.setAttributes(config.textAttribute ? {[config.textAttribute]: value} : {contentText: value});
+        },
+        placeholder: config.placeholder ? config.placeholder : wp.i18n.__( 'Excerpt', 'helsinki-linkedevents' ),
+      },
+    );
+  }
+
+  function hdsContentTitleRich(props, config) {
+    return wp.element.createElement(
+      wp.blockEditor.RichText, {
+        tagName: 'h2',
+        className: config.className ? config.className : 'content__heading',
+        value: config.titleAttribute ? props.attributes[config.titleAttribute] : props.attributes.contentTitle,
+        onChange: function (value) {
+          props.setAttributes(config.titleAttribute ? {[config.titleAttribute]: value} : {contentTitle: value});
+        },
+        allowedFormats: [],
+        placeholder: config.placeholder ? config.placeholder : wp.i18n.__( 'Title', 'helsinki-linkedevents' ),
+      },
+    );
+  }
+  
+
   /**
     * Elements
     */
   function preview(props) {
-    return createElement(
-      'div', useBlockProps(),
-      createElement(ServerSideRender, {
-        block: 'helsinki-linkedevents/grid',
-        attributes: props.attributes,
-      })
-    );
+    if (props.isSelected) {
+      return createElement(
+        'div', useBlockProps(),
+        createElement(
+          'div', {className: 'helsinki-events events'},
+          createElement(
+            'div', {className: 'hds-container'},
+            hdsContentTitleRich(props, {
+              placeholder: __('This is the title', 'hds-wp'),
+              titleAttribute: 'title',
+              className: 'events__title',
+            }),
+            hdsContentTextRich(props, {
+              placeholder: __('This is the excerpt.', 'hds-wp'),
+              className: 'events__excerpt',
+            }),
+            createElement(ServerSideRender, {
+              block: 'helsinki-linkedevents/grid',
+              attributes: {...props.attributes, isEditRender: true},
+            })  
+          )
+        )
+      );
+    }
+    else {
+      return createElement(
+        'div', useBlockProps(),
+        createElement(ServerSideRender, {
+          block: 'helsinki-linkedevents/grid',
+          attributes: {...props.attributes },
+        })
+      );
+    }
   }
 
   /**
@@ -149,10 +204,19 @@
 				type: 'string',
 				default: '',
 			},
+      contentText: {
+        type: 'string',
+        default: '',
+      },
 			anchor: {
 				type: 'string',
 				default: '',
 			},
+      isEditRender: {
+        type: 'boolean',
+        default: false,
+      },
+
 
 		},
 		edit: edit(),

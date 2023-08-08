@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 09:33+0000\n"
+"POT-Creation-Date: 2023-08-08 11:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:386
+#: block/events.php:470
 msgid "(Link leads to external service)"
 msgstr ""
 
@@ -32,15 +32,24 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:138
+#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:194
 msgid "events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:50 src/admin/js/block/events.js:47
+#: assets/admin/js/scripts.js:56 src/admin/js/block/events.js:47
 msgid "Events configuration"
 msgstr ""
 
-#: block/events.php:338 class/Api/Filters/Prices.php:12
+#: block/events.php:262
+msgctxt "events text after count"
+msgid "events"
+msgstr ""
+
+#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:107
+msgid "Excerpt"
+msgstr ""
+
+#: block/events.php:422 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr ""
 
@@ -48,16 +57,13 @@ msgstr ""
 msgid "Fri"
 msgstr ""
 
-#: block/events.php:72
+#: block/events.php:82
 msgid "Helsinki"
 msgstr ""
 
-#: block/events.php:16 assets/admin/js/scripts.js:121
+#: block/events.php:16 assets/admin/js/scripts.js:176
+#: src/admin/js/block/events.js:191
 msgid "Helsinki - Events"
-msgstr ""
-
-#: src/admin/js/block/events.js:135
-msgid "Helsinki - Eventsssssss"
 msgstr ""
 
 #. Name of the plugin
@@ -80,11 +86,11 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
-#: assets/admin/js/scripts.js:45 src/admin/js/block/events.js:42
+#: assets/admin/js/scripts.js:51 src/admin/js/block/events.js:42
 msgid "Loading"
 msgstr ""
 
-#: block/events.php:327
+#: block/events.php:411
 msgid "Location:"
 msgstr ""
 
@@ -114,7 +120,7 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: block/events.php:349
+#: block/events.php:433
 msgid "Price:"
 msgstr ""
 
@@ -126,15 +132,15 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: assets/admin/js/scripts.js:34 src/admin/js/block/events.js:30
+#: assets/admin/js/scripts.js:40 src/admin/js/block/events.js:30
 msgid "Select configuration"
 msgstr ""
 
-#: assets/admin/js/scripts.js:66 src/admin/js/block/events.js:66
+#: assets/admin/js/scripts.js:72 src/admin/js/block/events.js:66
 msgid "Settings"
 msgstr ""
 
-#: block/events.php:208
+#: block/events.php:277
 msgid "Show more events"
 msgstr ""
 
@@ -151,11 +157,12 @@ msgctxt "time of clock"
 msgid "at"
 msgstr ""
 
-#: block/events.php:313
+#: block/events.php:397
 msgid "Time:"
 msgstr ""
 
-#: assets/admin/js/scripts.js:77 src/admin/js/block/events.js:86
+#: assets/admin/js/scripts.js:83 assets/admin/js/scripts.js:119
+#: src/admin/js/block/events.js:86 src/admin/js/block/events.js:122
 msgid "Title"
 msgstr ""
 

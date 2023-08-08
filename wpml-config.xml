@@ -2,6 +2,7 @@
   <gutenberg-blocks>
     <gutenberg-block type="helsinki-linkedevents/grid" translate="1">
       <key name="title" />
+      <key name="contentText" />
     </gutenberg-block>
   </gutenberg-blocks>
 </wpml-config>

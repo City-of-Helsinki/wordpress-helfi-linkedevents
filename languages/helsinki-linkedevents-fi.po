@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2023-03-22 09:33+0000\n"
+"PO-Revision-Date: 2023-08-08 11:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: Suomi\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:386
+#: block/events.php:470
 msgid "(Link leads to external service)"
 msgstr "(Linkki johtaa ulkoiseen palveluun)"
 
@@ -31,15 +31,24 @@ msgstr "ArtCloud"
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:138
+#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:194
 msgid "events"
 msgstr "tapahtumat"
 
-#: assets/admin/js/scripts.js:50 src/admin/js/block/events.js:47
+#: assets/admin/js/scripts.js:56 src/admin/js/block/events.js:47
 msgid "Events configuration"
 msgstr "Tapahtumien määrittely"
 
-#: block/events.php:338 class/Api/Filters/Prices.php:12
+#: block/events.php:262
+msgctxt "events text after count"
+msgid "events"
+msgstr "tapahtumaa"
+
+#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:107
+msgid "Excerpt"
+msgstr "Kuvaus"
+
+#: block/events.php:422 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Maksuton"
 
@@ -47,17 +56,14 @@ msgstr "Maksuton"
 msgid "Fri"
 msgstr "Pe"
 
-#: block/events.php:72
+#: block/events.php:82
 msgid "Helsinki"
 msgstr "Helsinki"
 
-#: block/events.php:16 assets/admin/js/scripts.js:121
+#: block/events.php:16 assets/admin/js/scripts.js:176
+#: src/admin/js/block/events.js:191
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
-msgstr "Helsinki - Tapahtumat"
-
-#: src/admin/js/block/events.js:135
-msgid "Helsinki - Eventsssssss"
 msgstr "Helsinki - Tapahtumat"
 
 #. Name of the plugin
@@ -80,11 +86,11 @@ msgstr "Avainsanat"
 msgid "Languages"
 msgstr "Kielet"
 
-#: assets/admin/js/scripts.js:45 src/admin/js/block/events.js:42
+#: assets/admin/js/scripts.js:51 src/admin/js/block/events.js:42
 msgid "Loading"
 msgstr "Ladataan"
 
-#: block/events.php:327
+#: block/events.php:411
 #| msgid "Location"
 msgid "Location:"
 msgstr "Paikka:"
@@ -115,7 +121,7 @@ msgstr "Tapahtuma"
 msgid "Price"
 msgstr "Hinta"
 
-#: block/events.php:349
+#: block/events.php:433
 msgid "Price:"
 msgstr "Hinta:"
 
@@ -127,15 +133,15 @@ msgstr "Julkaisijat"
 msgid "Sat"
 msgstr "La"
 
-#: assets/admin/js/scripts.js:34 src/admin/js/block/events.js:30
+#: assets/admin/js/scripts.js:40 src/admin/js/block/events.js:30
 msgid "Select configuration"
 msgstr "Valitse määrittely"
 
-#: assets/admin/js/scripts.js:66 src/admin/js/block/events.js:66
+#: assets/admin/js/scripts.js:72 src/admin/js/block/events.js:66
 msgid "Settings"
 msgstr "Asetukset"
 
-#: block/events.php:208
+#: block/events.php:277
 msgid "Show more events"
 msgstr "Näytä lisää tapahtumia"
 
@@ -152,12 +158,13 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "klo"
 
-#: block/events.php:313
+#: block/events.php:397
 #| msgid "Time"
 msgid "Time:"
 msgstr "Aika:"
 
-#: assets/admin/js/scripts.js:77 src/admin/js/block/events.js:86
+#: assets/admin/js/scripts.js:83 assets/admin/js/scripts.js:119
+#: src/admin/js/block/events.js:86 src/admin/js/block/events.js:122
 msgid "Title"
 msgstr "Otsikko"
 

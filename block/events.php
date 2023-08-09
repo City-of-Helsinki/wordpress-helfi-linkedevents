@@ -475,9 +475,13 @@ function render_event_icon( string $name ) {
 function render_event_tags( $event ) {
 	$tags = array();
 	foreach ( $event->keywords() as $keyword ) {
+		$name = $keyword->name();
+		if ( ! $name ) {
+			continue;
+		}
 		$tags[] = sprintf(
 			'<li class="hds-tag hds-tag--rounded-corners"><span class="hds-tag__label">%s</span></li>',
-			esc_html( $keyword->name() )
+			esc_html( $name )
 		);
 	}
 

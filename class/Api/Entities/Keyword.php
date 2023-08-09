@@ -30,4 +30,35 @@ class Keyword extends Entity {
     public function name() : ?string {
         return $this->key_by_language( 'name' );
     }
+
+    //override key_by_language
+    /**
+     * Get key by language
+     *
+     * @param string      $key         Event object key.
+     * @param bool|object $entity_data Entity data.
+     *
+     * @return string|null
+     */
+    protected function key_by_language( string $key, $entity_data = false ) {
+        $current_language = $this->current_language();
+        $default_language = $this->default_language();
+
+        if ( ! $entity_data ) {
+            $entity_data = $this->entity_data;
+        }
+
+		$data = $this->key_value( $entity_data, $key );
+		if ( ! $data ) {
+			return;
+		}
+
+		$value = $this->key_value( $data, $current_language );
+		if ( $value ) {
+			return $value;
+		}
+
+        //do not fallback to a default language
+        return;
+    }
 }

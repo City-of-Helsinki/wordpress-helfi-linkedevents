@@ -389,12 +389,14 @@ function render_event_title( $event ) {
 }
 
 function render_event_date( $event ) {
+	$label_id = event_get_random_id();
 	return apply_filters(
 		'helsinki_linkedevents_event_date',
 		sprintf(
-			'<div class="event__detail event__date">%s<div>%s<span><time>%s</time></span></div></div>',
+			'<div class="event__detail event__date">%s<div>%s<span id="%s"><time>%s</time></span></div></div>',
 			render_event_icon( 'calendar-clock' ),
-			render_event_section_label(__('Time:', 'helsinki-linkedevents')),
+			render_event_section_label(__('Time:', 'helsinki-linkedevents'), $label_id),
+			$label_id,
 			$event->formatted_time_string()
 		),
 		$event
@@ -403,12 +405,14 @@ function render_event_date( $event ) {
 
 function render_event_venue( $event ) {
 	$location = $event->location_string();
+	$label_id = event_get_random_id();
 	return apply_filters(
 		'helsinki_linkedevents_event_location',
 		$location ? sprintf(
-			'<address class="event__detail event__venue">%s<div>%s<span>%s</span></div></address>',
+			'<address class="event__detail event__venue">%s<div>%s<span id="%s">%s</span></div></address>',
 			render_event_icon( 'location' ),
-			render_event_section_label(__('Location:', 'helsinki-linkedevents')),
+			render_event_section_label(__('Location:', 'helsinki-linkedevents'), $label_id),
+			$label_id,
 			$location
 		) : '',
 		$event
@@ -428,9 +432,11 @@ function render_event_price( $event ) {
 			}
 		}
 
+		$label_id = event_get_random_id();
 		$prices[] = sprintf(
-			'<div>%s<span class="price">%s</span></div>',
-			render_event_section_label(__('Price:', 'helsinki-linkedevents')),
+			'<div>%s<span id="%s" class="price">%s</span></div>',
+			render_event_section_label(__('Price:', 'helsinki-linkedevents'), $label_id),
+			$label_id,
 			wp_kses_post( $price )
 		);
 	}
@@ -488,7 +494,8 @@ function render_event_tags( $event ) {
 	return apply_filters(
 		'helsinki_linkedevents_event_tags',
 		$tags ? sprintf(
-			'<ul class="event__tags">%s</ul>',
+			'<ul class="event__tags" aria-label="%s">%s</ul>',
+			esc_attr__( 'Identifiers', 'helsinki-linkedevents' ),
 			implode( '', $tags )
 		) : '',
 		$event,
@@ -496,18 +503,23 @@ function render_event_tags( $event ) {
 	);
 }
 
-function render_event_section_label(string $name) {
+function render_event_section_label(string $name, string $id = '') {
 	return apply_filters(
 		'helsinki_linkedevents_event_section_label',
 		sprintf(
-			'<label class="event__section_label">
+			'<label for="%s" class="event__section_label">
 				%s
 			</label>',
+			$id,
 			$name
 		),
 		$name,
 	);
 
+}
+
+function event_get_random_id() {
+	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(20/strlen($x)) )),1,20);
 }
 
 function icon_path( string $name ) {

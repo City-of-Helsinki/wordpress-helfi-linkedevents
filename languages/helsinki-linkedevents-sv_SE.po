@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2023-08-08 11:11+0000\n"
+"PO-Revision-Date: 2023-08-25 05:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.6.0; wp-6.1.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:470
+#: block/events.php:476
 msgid "(Link leads to external service)"
 msgstr "(Länk leder till extern tjänst)"
 
@@ -31,7 +31,7 @@ msgstr "ArtCloud"
 msgid "Events"
 msgstr "Evenemang"
 
-#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:194
+#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:193
 msgid "events"
 msgstr "Evenemang"
 
@@ -44,11 +44,11 @@ msgctxt "events text after count"
 msgid "events"
 msgstr "evenemang"
 
-#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:107
+#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:106
 msgid "Excerpt"
 msgstr "Beskrivning"
 
-#: block/events.php:422 class/Api/Filters/Prices.php:12
+#: block/events.php:426 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Gratis"
 
@@ -61,7 +61,7 @@ msgid "Helsinki"
 msgstr "Helsingfors"
 
 #: block/events.php:16 assets/admin/js/scripts.js:176
-#: src/admin/js/block/events.js:191
+#: src/admin/js/block/events.js:190
 #, fuzzy
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
@@ -74,6 +74,10 @@ msgstr "Helsingfors Linked Events"
 #. Author URI of the plugin
 msgid "https://www.artcloud.fi"
 msgstr "https://www.artcloud.fi"
+
+#: block/events.php:498
+msgid "Identifiers"
+msgstr "Identifierare"
 
 #. Description of the plugin
 msgid "Integration with the Helsinki Linked Events API."
@@ -91,7 +95,7 @@ msgstr "Språk"
 msgid "Loading"
 msgstr "Lastning"
 
-#: block/events.php:411
+#: block/events.php:414
 #| msgid "Location"
 msgid "Location:"
 msgstr "Plats:"
@@ -122,7 +126,7 @@ msgstr ""
 msgid "Price"
 msgstr "Pris"
 
-#: block/events.php:433
+#: block/events.php:438
 msgid "Price:"
 msgstr "Pris:"
 
@@ -159,13 +163,13 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "kl."
 
-#: block/events.php:397
+#: block/events.php:398
 #| msgid "Time"
 msgid "Time:"
 msgstr "Tid:"
 
 #: assets/admin/js/scripts.js:83 assets/admin/js/scripts.js:119
-#: src/admin/js/block/events.js:86 src/admin/js/block/events.js:122
+#: src/admin/js/block/events.js:85 src/admin/js/block/events.js:121
 msgid "Title"
 msgstr "Rubrik"
 

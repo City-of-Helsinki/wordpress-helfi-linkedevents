@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 11:07+0000\n"
+"POT-Creation-Date: 2023-08-25 05:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:470
+#: block/events.php:476
 msgid "(Link leads to external service)"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:194
+#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:193
 msgid "events"
 msgstr ""
 
@@ -45,11 +45,11 @@ msgctxt "events text after count"
 msgid "events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:107
+#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:106
 msgid "Excerpt"
 msgstr ""
 
-#: block/events.php:422 class/Api/Filters/Prices.php:12
+#: block/events.php:426 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgid "Helsinki"
 msgstr ""
 
 #: block/events.php:16 assets/admin/js/scripts.js:176
-#: src/admin/js/block/events.js:191
+#: src/admin/js/block/events.js:190
 msgid "Helsinki - Events"
 msgstr ""
 
@@ -72,6 +72,10 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://www.artcloud.fi"
+msgstr ""
+
+#: block/events.php:498
+msgid "Identifiers"
 msgstr ""
 
 #. Description of the plugin
@@ -90,7 +94,7 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: block/events.php:411
+#: block/events.php:414
 msgid "Location:"
 msgstr ""
 
@@ -120,7 +124,7 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: block/events.php:433
+#: block/events.php:438
 msgid "Price:"
 msgstr ""
 
@@ -157,12 +161,12 @@ msgctxt "time of clock"
 msgid "at"
 msgstr ""
 
-#: block/events.php:397
+#: block/events.php:398
 msgid "Time:"
 msgstr ""
 
 #: assets/admin/js/scripts.js:83 assets/admin/js/scripts.js:119
-#: src/admin/js/block/events.js:86 src/admin/js/block/events.js:122
+#: src/admin/js/block/events.js:85 src/admin/js/block/events.js:121
 msgid "Title"
 msgstr ""
 

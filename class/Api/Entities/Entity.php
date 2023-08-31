@@ -71,6 +71,7 @@ class Entity {
     protected function key_by_language( string $key, $entity_data = false ) {
         $current_language = $this->current_language();
         $default_language = $this->default_language();
+        $final_language_fallback = 'fi';
 
         if ( ! $entity_data ) {
             $entity_data = $this->entity_data;
@@ -90,6 +91,11 @@ class Entity {
 		if ( $value ) {
 			return $value;
 		}
+
+        $value = $this->key_value( $data, $final_language_fallback );
+        if ( $value ) {
+            return $value;
+        }
     }
 
 	protected function key_value( $data, $key ) {

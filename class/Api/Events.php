@@ -5,6 +5,7 @@ namespace CityOfHelsinki\WordPress\LinkedEvents\Api;
 use CityOfHelsinki\WordPress\LinkedEvents\CacheManager;
 use CityOfHelsinki\WordPress\LinkedEvents\Api\Entities\Event;
 use CityOfHelsinki\WordPress\LinkedEvents\Api\Filters\Places;
+use CityOfHelsinki\WordPress\LinkedEvents\Api\Filters\Keywords;
 
 class Events extends Client {
 
@@ -23,7 +24,7 @@ class Events extends Client {
 
 		CacheManager::store(
 			'events-config-' . $config_post_id,
-			self::add_locations_data( $response->data )
+			self::add_data( $response->data )
 		);
 
 		return self::map_entities( Event::class, $response->data );
@@ -38,6 +39,12 @@ class Events extends Client {
 		return array_filter( $events, function( $event ){
 			return ! empty( $event->name() );
 		} );
+	}
+
+	protected static function add_data( $items ) {
+		$items = self::add_locations_data( $items );
+		$items = self::add_keyword_data( $items );
+		return $items;
 	}
 
 	protected static function add_locations_data( $items ) {
@@ -73,6 +80,52 @@ class Events extends Client {
 			return $item['location'] ?? [];
 		}
 	}
+
+	protected static function add_keyword_data( $items ) {
+		$options = Keywords::cache_items();
+		$out = array();
+		foreach ( $items as $item ) {
+			$keyword_ids = self::event_item_keyword_ids( $item );
+			if ( $keyword_ids ) {
+				$keywords = array();
+				foreach ( $keyword_ids as $keyword_id ) {
+					if ( isset( $options[$keyword_id] ) ) {
+						$keywords[] = $options[$keyword_id];
+					}
+				}
+				if ( $keywords ) {
+					if ( is_object( $item ) ) {
+						$item->keywords = $keywords;
+					} else {
+						$item['keywords'] = $keywords;
+					}
+				}
+			}
+			$out[] = $item;
+		}
+		return $out;
+	}
+
+	protected static function event_item_keyword_ids( $item ) {
+		$keywords = self::event_item_keyword_data( $item );
+		return ! empty( $keywords ) ? array_map( function( $keyword ) {
+			if (is_object($keyword)) {
+				return basename( $keyword->{'@id'} );
+			}
+			else {
+				return basename( $keyword['@id'] );
+			}
+		}, $keywords ) : [];
+	}
+
+	protected static function event_item_keyword_data( $item ) {
+		if ( is_object( $item ) ) {
+			return property_exists( $item, 'keywords' ) ? (array) $item->keywords : [];
+		} else {
+			return $item['keywords'] ?? [];
+		}
+	}
+
 
 	protected static function event_params( int $post_id ) {
 		$post = get_post( $post_id );

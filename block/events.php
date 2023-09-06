@@ -518,3 +518,4 @@ function render_event_section_label(string $name, string $id = '') {
 function event_get_random_id() {
 	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(20/strlen($x)) )),1,20);
 }
+

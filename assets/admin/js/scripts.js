@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 (function (wp) {
   var __ = wp.i18n.__,
       registerBlockType = wp.blocks.registerBlockType,
@@ -65,7 +71,7 @@
     return createElement(InspectorControls, {}, createElement(PanelBody, {
       title: __('Settings', 'helsinki-linkedevents'),
       initialOpen: true
-    }, titleTextControl(props), configSelectControl(props)));
+    }, configSelectControl(props)));
   }
 
   function configSelectControl(props) {
@@ -84,16 +90,65 @@
       }
     }));
   }
+
+  function hdsContentTextRich(props, config) {
+    return wp.element.createElement(wp.blockEditor.RichText, {
+      tagName: 'p',
+      className: config.className ? config.className : 'content__text',
+      value: config.textAttribute ? props.attributes[config.textAttribute] : props.attributes.contentText,
+      onChange: function onChange(value) {
+        props.setAttributes(config.textAttribute ? _defineProperty({}, config.textAttribute, value) : {
+          contentText: value
+        });
+      },
+      placeholder: config.placeholder ? config.placeholder : wp.i18n.__('Excerpt', 'helsinki-linkedevents')
+    });
+  }
+
+  function hdsContentTitleRich(props, config) {
+    return wp.element.createElement(wp.blockEditor.RichText, {
+      tagName: 'h2',
+      className: config.className ? config.className : 'content__heading',
+      value: config.titleAttribute ? props.attributes[config.titleAttribute] : props.attributes.contentTitle,
+      onChange: function onChange(value) {
+        props.setAttributes(config.titleAttribute ? _defineProperty({}, config.titleAttribute, value) : {
+          contentTitle: value
+        });
+      },
+      allowedFormats: [],
+      placeholder: config.placeholder ? config.placeholder : wp.i18n.__('Title', 'helsinki-linkedevents')
+    });
+  }
   /**
     * Elements
     */
 
 
   function preview(props) {
-    return createElement('div', useBlockProps(), createElement(ServerSideRender, {
-      block: 'helsinki-linkedevents/grid',
-      attributes: props.attributes
-    }));
+    if (props.isSelected) {
+      return createElement('div', useBlockProps(), createElement('div', {
+        className: 'helsinki-events events'
+      }, createElement('div', {
+        className: 'hds-container'
+      }, hdsContentTitleRich(props, {
+        placeholder: __('This is the title', 'hds-wp'),
+        titleAttribute: 'title',
+        className: 'events__title'
+      }), hdsContentTextRich(props, {
+        placeholder: __('This is the excerpt.', 'hds-wp'),
+        className: 'events__excerpt'
+      }), createElement(ServerSideRender, {
+        block: 'helsinki-linkedevents/grid',
+        attributes: _objectSpread(_objectSpread({}, props.attributes), {}, {
+          isEditRender: true
+        })
+      }))));
+    } else {
+      return createElement('div', useBlockProps(), createElement(ServerSideRender, {
+        block: 'helsinki-linkedevents/grid',
+        attributes: _objectSpread({}, props.attributes)
+      }));
+    }
   }
   /**
     * Edit
@@ -135,9 +190,17 @@
         type: 'string',
         default: ''
       },
+      contentText: {
+        type: 'string',
+        default: ''
+      },
       anchor: {
         type: 'string',
         default: ''
+      },
+      isEditRender: {
+        type: 'boolean',
+        default: false
       }
     },
     edit: edit()

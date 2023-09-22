@@ -3,19 +3,13 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2023-08-25 05:35+0000\n"
-"Last-Translator: \n"
-"Language-Team: Suomi\n"
 "Language: fi\n"
+"Language-Team: Suomi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.5; wp-5.8.1\n"
-"X-Domain: helsinki-linkedevents"
+"PO-Revision-Date: 2023-09-22 08:02+0000\n"
+"X-Generator: Loco https://localise.biz/"
 
-#: block/events.php:476
+#: block/events.php:479
 msgid "(Link leads to external service)"
 msgstr "(Linkki johtaa ulkoiseen palveluun)"
 
@@ -31,7 +25,7 @@ msgstr "ArtCloud"
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: assets/admin/js/scripts.js:179 src/admin/js/block/events.js:193
+#: assets/admin/js/scripts.js:208 src/admin/js/block/events.js:219
 msgid "events"
 msgstr "tapahtumat"
 
@@ -39,16 +33,16 @@ msgstr "tapahtumat"
 msgid "Events configuration"
 msgstr "Tapahtumien määrittely"
 
-#: block/events.php:262
+#: block/events.php:267
 msgctxt "events text after count"
 msgid "events"
 msgstr "tapahtumaa"
 
-#: assets/admin/js/scripts.js:104 src/admin/js/block/events.js:106
+#: assets/admin/js/scripts.js:132 src/admin/js/block/events.js:130
 msgid "Excerpt"
 msgstr "Kuvaus"
 
-#: block/events.php:426 class/Api/Filters/Prices.php:12
+#: block/events.php:431 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Maksuton"
 
@@ -56,12 +50,12 @@ msgstr "Maksuton"
 msgid "Fri"
 msgstr "Pe"
 
-#: block/events.php:82
+#: block/events.php:87
 msgid "Helsinki"
 msgstr "Helsinki"
 
-#: block/events.php:16 assets/admin/js/scripts.js:176
-#: src/admin/js/block/events.js:190
+#: block/events.php:16 assets/admin/js/scripts.js:205
+#: src/admin/js/block/events.js:216
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
 msgstr "Helsinki - Tapahtumat"
@@ -74,7 +68,7 @@ msgstr "Helsinki Linked Events"
 msgid "https://www.artcloud.fi"
 msgstr "https://www.artcloud.fi"
 
-#: block/events.php:498
+#: block/events.php:500
 msgid "Identifiers"
 msgstr "Tunnisteet"
 
@@ -94,7 +88,7 @@ msgstr "Kielet"
 msgid "Loading"
 msgstr "Ladataan"
 
-#: block/events.php:414
+#: block/events.php:419
 #| msgid "Location"
 msgid "Location:"
 msgstr "Paikka:"
@@ -106,6 +100,10 @@ msgstr "Paikat"
 #: class/Api/Entities/Event.php:182
 msgid "Mon"
 msgstr "Ma"
+
+#: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:93
+msgid "Number of events"
+msgstr "Tapahtumien lukumäärä"
 
 #: class/Api/Filters/Prices.php:13
 msgid "Paid"
@@ -125,7 +123,7 @@ msgstr "Tapahtuma"
 msgid "Price"
 msgstr "Hinta"
 
-#: block/events.php:438
+#: block/events.php:443
 msgid "Price:"
 msgstr "Hinta:"
 
@@ -141,11 +139,11 @@ msgstr "La"
 msgid "Select configuration"
 msgstr "Valitse määrittely"
 
-#: assets/admin/js/scripts.js:72 src/admin/js/block/events.js:66
+#: assets/admin/js/scripts.js:83 src/admin/js/block/events.js:73
 msgid "Settings"
 msgstr "Asetukset"
 
-#: block/events.php:277
+#: block/events.php:282
 msgid "Show more events"
 msgstr "Näytä lisää tapahtumia"
 
@@ -162,13 +160,13 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "klo"
 
-#: block/events.php:398
+#: block/events.php:403
 #| msgid "Time"
 msgid "Time:"
 msgstr "Aika:"
 
-#: assets/admin/js/scripts.js:83 assets/admin/js/scripts.js:119
-#: src/admin/js/block/events.js:85 src/admin/js/block/events.js:121
+#: assets/admin/js/scripts.js:111 assets/admin/js/scripts.js:147
+#: src/admin/js/block/events.js:109 src/admin/js/block/events.js:145
 msgid "Title"
 msgstr "Otsikko"
 

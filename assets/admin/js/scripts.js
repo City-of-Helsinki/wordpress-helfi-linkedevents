@@ -63,19 +63,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       options: options
     });
   });
+
+  function eventCountOptions() {
+    return [{
+      label: 3,
+      value: 3
+    }, {
+      label: 5,
+      value: 5
+    }];
+  }
   /**
     * InspectorControls
     */
+
 
   function inspectorControls(props) {
     return createElement(InspectorControls, {}, createElement(PanelBody, {
       title: __('Settings', 'helsinki-linkedevents'),
       initialOpen: true
-    }, configSelectControl(props)));
+    }, configSelectControl(props), eventsCountControl(props)));
   }
 
   function configSelectControl(props) {
     return createElement(PanelRow, {}, createElement(EventsConfigSelect, props));
+  }
+
+  function eventsCountControl(props) {
+    return createElement(PanelRow, {}, createElement(SelectControl, {
+      label: __('Number of events', 'helsinki-linkedevents'),
+      value: props.attributes.eventsCount,
+      onChange: function onChange(count) {
+        props.setAttributes({
+          eventsCount: count
+        });
+      },
+      options: eventCountOptions()
+    }));
   }
 
   function titleTextControl(props) {
@@ -157,6 +181,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   function edit() {
     return function (props) {
+      props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
       return createElement(Fragment, {}, inspectorControls(props), preview(props));
     };
   }
@@ -185,6 +210,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       configID: {
         type: 'string',
         default: 0
+      },
+      eventsCount: {
+        type: 'number',
+        default: 3
       },
       title: {
         type: 'string',

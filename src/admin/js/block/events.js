@@ -55,6 +55,13 @@
     });
   });
 
+  function eventCountOptions() {
+    return [
+      {label: 3, value: 3},
+      {label: 5, value: 5},
+    ];
+  }
+
   /**
     * InspectorControls
     */
@@ -66,7 +73,8 @@
           title: __( 'Settings', 'helsinki-linkedevents' ),
           initialOpen: true,
         },
-        configSelectControl(props)
+        configSelectControl(props),
+        eventsCountControl(props)
       )
     );
   }
@@ -75,6 +83,22 @@
     return createElement(
       PanelRow, {},
       createElement(EventsConfigSelect, props)
+    );
+  }
+
+  function eventsCountControl(props) {
+    return createElement(
+      PanelRow, {},
+      createElement(SelectControl, {
+        label: __( 'Number of events', 'helsinki-linkedevents' ),
+        value: props.attributes.eventsCount,
+        onChange: function(count) {
+          props.setAttributes({
+            eventsCount: count,
+          });
+        },
+        options: eventCountOptions(),
+      })
     );
   }
 
@@ -168,6 +192,8 @@
     */
   function edit() {
     return function(props) {
+      props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
+
       return createElement(
         Fragment, {},
         inspectorControls(props),
@@ -200,6 +226,10 @@
 				type: 'string',
 				default: 0,
 			},
+      eventsCount: {
+        type: 'number',
+        default: 3,
+      },
 			title: {
 				type: 'string',
 				default: '',

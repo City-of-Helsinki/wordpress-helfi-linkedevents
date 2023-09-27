@@ -31,6 +31,10 @@ function blocks() {
 					'type' => 'string',
 					'default' => 0,
 				),
+				'eventsCount' => array(
+					'type' => 'number',
+					'default' => 3,
+				),
 				'title' => array(
 					'type' => 'string',
 					'default' => '',
@@ -52,10 +56,11 @@ function blocks() {
 	);
 }
 
-function events_per_page() {
-	//get posts per page setting
-	$posts_per_page = get_option( 'posts_per_page' );
-	return $posts_per_page;
+function events_per_page( $eventsCount ) {
+	if ( ! $eventsCount ) {
+		$eventsCount = 3;
+	}
+	return $eventsCount;
 }
 
 /**
@@ -186,7 +191,7 @@ function render_events_grid( $attributes ) {
 	if ( empty( $paged ) ) {
 		$paged = 1;
 	}	  
-	$per_page = events_per_page();
+	$per_page = events_per_page($attributes['eventsCount']);
 	$offset = ( $paged - 1 ) * $per_page;
 
 	$output = sprintf(

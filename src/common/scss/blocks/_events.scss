@@ -4,11 +4,11 @@
   background-color: rgb(247, 247, 248);
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  margin-bottom: var(--spacing-l);
   max-width: 100vw;
   width: 100vw;
   padding-top: 64px;
   padding-bottom: 64px;
+  @extend %helsinki-block-spacing;
 
   @media screen and (min-width: 992px) {
 	margin-bottom: var(--spacing-4-xl);
@@ -17,11 +17,17 @@
   .events__title {}
 
   .events__excerpt {
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
 
   .events__count {
     margin-bottom: 16px;
+
+    //not first-child
+    &:not(:first-child) {
+      @extend %helsinki-block-content-spacing;
+
+    }
   }
 
   .events__container {}

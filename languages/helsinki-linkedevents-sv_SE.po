@@ -26,7 +26,6 @@ msgid "Events"
 msgstr "Evenemang"
 
 #: assets/admin/js/scripts.js:208 src/admin/js/block/events.js:219
-#: assets/admin/js/scripts.js:204 src/admin/js/block/events.js:219
 msgid "events"
 msgstr "Evenemang"
 
@@ -40,7 +39,6 @@ msgid "events"
 msgstr "evenemang"
 
 #: assets/admin/js/scripts.js:132 src/admin/js/block/events.js:130
-#: assets/admin/js/scripts.js:128 src/admin/js/block/events.js:130
 msgid "Excerpt"
 msgstr "Beskrivning"
 
@@ -56,8 +54,8 @@ msgstr "Fre"
 msgid "Helsinki"
 msgstr "Helsingfors"
 
-#: block/events.php:16 assets/admin/js/scripts.js:205 block/events.php:16
-#: assets/admin/js/scripts.js:201 src/admin/js/block/events.js:216
+#: block/events.php:16 assets/admin/js/scripts.js:205
+#: src/admin/js/block/events.js:216
 #, fuzzy
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
@@ -105,7 +103,6 @@ msgid "Mon"
 msgstr "Mån"
 
 #: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:93
-#: assets/admin/js/scripts.js:94 src/admin/js/block/events.js:93
 msgid "Number of events"
 msgstr "Antal evenemang"
 
@@ -170,7 +167,6 @@ msgid "Time:"
 msgstr "Tid:"
 
 #: assets/admin/js/scripts.js:111 assets/admin/js/scripts.js:147
-#: assets/admin/js/scripts.js:107 assets/admin/js/scripts.js:143
 #: src/admin/js/block/events.js:109 src/admin/js/block/events.js:145
 msgid "Title"
 msgstr "Rubrik"

@@ -6,13 +6,8 @@ msgstr ""
 "Language: fi\n"
 "Language-Team: Suomi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"PO-Revision-Date: 2023-09-22 08:04+0000\n"
-"X-Generator: Loco https://localise.biz/\n"
-"Last-Translator: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Loco-Version: 2.6.0; wp-6.3.1"
+"PO-Revision-Date: 2023-10-09 10:35+0000\n"
+"X-Generator: Loco https://localise.biz/"
 
 #: block/events.php:479
 msgid "(Link leads to external service)"
@@ -31,6 +26,7 @@ msgid "Events"
 msgstr "Tapahtumat"
 
 #: assets/admin/js/scripts.js:208 src/admin/js/block/events.js:219
+#: assets/admin/js/scripts.js:204 src/admin/js/block/events.js:219
 msgid "events"
 msgstr "tapahtumat"
 
@@ -44,6 +40,7 @@ msgid "events"
 msgstr "tapahtumaa"
 
 #: assets/admin/js/scripts.js:132 src/admin/js/block/events.js:130
+#: assets/admin/js/scripts.js:128 src/admin/js/block/events.js:130
 msgid "Excerpt"
 msgstr "Kuvaus"
 
@@ -59,8 +56,8 @@ msgstr "Pe"
 msgid "Helsinki"
 msgstr "Helsinki"
 
-#: block/events.php:16 assets/admin/js/scripts.js:205
-#: src/admin/js/block/events.js:216
+#: block/events.php:16 assets/admin/js/scripts.js:205 block/events.php:16
+#: assets/admin/js/scripts.js:201 src/admin/js/block/events.js:216
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
 msgstr "Helsinki - Tapahtumat"
@@ -107,6 +104,7 @@ msgid "Mon"
 msgstr "Ma"
 
 #: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:93
+#: assets/admin/js/scripts.js:94 src/admin/js/block/events.js:93
 msgid "Number of events"
 msgstr "Tapahtumien lukumäärä"
 
@@ -171,6 +169,7 @@ msgid "Time:"
 msgstr "Aika:"
 
 #: assets/admin/js/scripts.js:111 assets/admin/js/scripts.js:147
+#: assets/admin/js/scripts.js:107 assets/admin/js/scripts.js:143
 #: src/admin/js/block/events.js:109 src/admin/js/block/events.js:145
 msgid "Title"
 msgstr "Otsikko"

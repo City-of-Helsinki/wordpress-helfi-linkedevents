@@ -1,0 +1,20 @@
+$paragraph-margin-bottom-big: var(--spacing-4-xl) !default;
+$paragraph-margin-bottom-small: var(--spacing-l) !default;
+
+%helsinki-block-spacing {
+    margin-bottom: $paragraph-margin-bottom-small;
+    margin-top: $paragraph-margin-bottom-small;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: $paragraph-margin-bottom-big;
+        margin-top: $paragraph-margin-bottom-big;
+    }
+}
+
+%helsinki-block-content-spacing {
+    margin-top: var(--spacing-m);
+
+    @media screen and (min-width: 768px) {
+        margin-top: var(--spacing-2-xl);
+    }
+}

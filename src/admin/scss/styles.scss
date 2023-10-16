@@ -22,6 +22,12 @@ body.wp-admin .editor-styles-wrapper {
       }
     }
 
+    &.is-selected {
+      .events__count {
+        @extend %helsinki-block-content-spacing;
+      }
+    }
+
   }
 
 }

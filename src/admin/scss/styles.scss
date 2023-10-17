@@ -1,5 +1,6 @@
 body.wp-admin .editor-styles-wrapper {
 
+  @import '../../common/scss/blocks/general';
   @import '../../common/scss/blocks/events';
 
   .wp-block-helsinki-linkedevents-grid {
@@ -18,6 +19,12 @@ body.wp-admin .editor-styles-wrapper {
 
       p {
         margin-top: 0;
+      }
+    }
+
+    &.is-selected {
+      .events__count {
+        @extend %helsinki-block-content-spacing;
       }
     }
 

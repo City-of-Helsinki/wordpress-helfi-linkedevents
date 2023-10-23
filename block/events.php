@@ -47,6 +47,10 @@ function blocks() {
 					'type'    => 'string',
 					'default' => '',
 				),
+				'blockId' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
 				'isEditRender' => array(
 					'type'    => 'boolean',
 					'default' => false,
@@ -183,9 +187,19 @@ function render_events_grid( $attributes ) {
 	}
 
 	$id = '';
+	$id_value = '';
 	if (!empty($attributes['anchor'])) {
 		$id = 'id="'.esc_attr($attributes['anchor']).'"';
+		$id_value = esc_attr($attributes['anchor']);
 	}	
+	else if (!empty($attributes['blockId'])) {
+		$id = 'id="'.esc_attr($attributes['blockId']).'"';
+		$id_value = esc_attr($attributes['blockId']);
+	}
+	else {
+		$id = 'id="'. md5($attributes['title'].$attributes['contentText']) .'"';
+		$id_value = md5($attributes['title'].$attributes['contentText']);
+	}
 
 	global $paged;
 	if ( empty( $paged ) ) {
@@ -207,7 +221,7 @@ function render_events_grid( $attributes ) {
 		render_grid_events( array_slice(
 			$events, $offset, $per_page, false
 		) ),
-		render_event_pagination(count( $events ), $per_page),
+		render_event_pagination(count( $events ), $per_page, $id_value),
 		//count( $events ) > $per_page ? render_load_more_events( $attributes['configID'] ) : ''
 	);
 
@@ -285,12 +299,12 @@ function render_load_more_events( int $configID ) {
 	);
 }
 
-function render_event_pagination( $count, $per_page) {
+function render_event_pagination( $count, $per_page, $nav_id ) {
 	if ( function_exists('helsinki_loop_pagination') ) {
 		$max_pages = ceil($count / $per_page);
 
 		ob_start();
-		helsinki_loop_pagination(array('max_num_pages' => $max_pages));
+		helsinki_loop_pagination(array('max_num_pages' => $max_pages, 'anchor' => $nav_id));
 		$pagination = ob_get_clean();
 		return $pagination;
 	}

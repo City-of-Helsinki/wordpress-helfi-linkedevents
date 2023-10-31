@@ -193,6 +193,7 @@
   function edit() {
     return function(props) {
       props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
+      props.attributes.blockId = props.clientId;
 
       return createElement(
         Fragment, {},
@@ -242,6 +243,9 @@
 				type: 'string',
 				default: '',
 			},
+      blockId: {
+        type: 'string',
+      },
       isEditRender: {
         type: 'boolean',
         default: false,

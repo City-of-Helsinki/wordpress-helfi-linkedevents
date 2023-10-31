@@ -182,6 +182,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   function edit() {
     return function (props) {
       props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
+      props.attributes.blockId = props.clientId;
       return createElement(Fragment, {}, inspectorControls(props), preview(props));
     };
   }
@@ -226,6 +227,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       anchor: {
         type: 'string',
         default: ''
+      },
+      blockId: {
+        type: 'string'
       },
       isEditRender: {
         type: 'boolean',

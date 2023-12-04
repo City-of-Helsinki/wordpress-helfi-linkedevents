@@ -31,6 +31,10 @@ function blocks() {
 					'type' => 'string',
 					'default' => 0,
 				),
+				'configURL' => array(
+					'type' => 'string',
+					'default' => '',
+				),
 				'eventsCount' => array(
 					'type' => 'number',
 					'default' => 3,
@@ -177,11 +181,16 @@ function public_assets() {
   * Rendering
   */
 function render_events_grid( $attributes ) {
-	if ( empty( $attributes['configID'] ) ) {
+	if ( empty( $attributes['configID'] ) && empty($attributes['configURL']) ) {
 		return;
 	}
 
-	$events = Events::current_language_entities( absint($attributes['configID']) );
+	if ( ! empty($attributes['configURL']) ) {
+		$events = Events::current_language_entities( $attributes['configURL'] );
+	}
+	else {
+		$events = Events::current_language_entities( absint($attributes['configID']) );
+	}
 	if ( ! $events ) {
 		return;
 	}

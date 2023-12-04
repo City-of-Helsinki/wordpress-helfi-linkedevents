@@ -6,15 +6,10 @@ msgstr ""
 "Language: fi\n"
 "Language-Team: Suomi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"PO-Revision-Date: 2023-10-09 10:37+0000\n"
-"X-Generator: Loco https://localise.biz/\n"
-"Last-Translator: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Loco-Version: 2.6.0; wp-6.3.1"
+"PO-Revision-Date: 2023-12-04 07:47+0000\n"
+"X-Generator: Loco https://localise.biz/"
 
-#: block/events.php:479
+#: block/events.php:502
 msgid "(Link leads to external service)"
 msgstr "(Linkki johtaa ulkoiseen palveluun)"
 
@@ -26,30 +21,32 @@ msgstr "Kaikki"
 msgid "ArtCloud"
 msgstr "ArtCloud"
 
+#: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:95
+msgid "Event Listing URL"
+msgstr "Tapahtumalistauksen URL-osoite"
+
 #: views/metabox/linked-events-list.php:4
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: assets/admin/js/scripts.js:208 src/admin/js/block/events.js:219
-#: assets/admin/js/scripts.js:204 src/admin/js/block/events.js:219
+#: assets/admin/js/scripts.js:260 src/admin/js/block/events.js:271
 msgid "events"
 msgstr "tapahtumat"
 
-#: assets/admin/js/scripts.js:56 src/admin/js/block/events.js:47
+#: assets/admin/js/scripts.js:57 src/admin/js/block/events.js:48
 msgid "Events configuration"
 msgstr "Tapahtumien määrittely"
 
-#: block/events.php:267
+#: block/events.php:290
 msgctxt "events text after count"
 msgid "events"
 msgstr "tapahtumaa"
 
-#: assets/admin/js/scripts.js:132 src/admin/js/block/events.js:130
-#: assets/admin/js/scripts.js:128 src/admin/js/block/events.js:130
+#: assets/admin/js/scripts.js:158 src/admin/js/block/events.js:157
 msgid "Excerpt"
 msgstr "Kuvaus"
 
-#: block/events.php:431 class/Api/Filters/Prices.php:12
+#: block/events.php:454 class/Api/Filters/Prices.php:12
 msgid "Free"
 msgstr "Maksuton"
 
@@ -57,12 +54,12 @@ msgstr "Maksuton"
 msgid "Fri"
 msgstr "Pe"
 
-#: block/events.php:87
+#: block/events.php:95
 msgid "Helsinki"
 msgstr "Helsinki"
 
-#: block/events.php:16 assets/admin/js/scripts.js:205 block/events.php:16
-#: assets/admin/js/scripts.js:201 src/admin/js/block/events.js:216
+#: block/events.php:16 assets/admin/js/scripts.js:257
+#: src/admin/js/block/events.js:268
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
 msgstr "Helsinki - Tapahtumat"
@@ -75,7 +72,7 @@ msgstr "Helsinki Linked Events"
 msgid "https://www.artcloud.fi"
 msgstr "https://www.artcloud.fi"
 
-#: block/events.php:500
+#: block/events.php:523
 msgid "Identifiers"
 msgstr "Tunnisteet"
 
@@ -91,11 +88,11 @@ msgstr "Avainsanat"
 msgid "Languages"
 msgstr "Kielet"
 
-#: assets/admin/js/scripts.js:51 src/admin/js/block/events.js:42
+#: assets/admin/js/scripts.js:52 src/admin/js/block/events.js:43
 msgid "Loading"
 msgstr "Ladataan"
 
-#: block/events.php:419
+#: block/events.php:442
 #| msgid "Location"
 msgid "Location:"
 msgstr "Paikka:"
@@ -108,8 +105,11 @@ msgstr "Paikat"
 msgid "Mon"
 msgstr "Ma"
 
-#: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:93
-#: assets/admin/js/scripts.js:94 src/admin/js/block/events.js:93
+#: cpt/linked-events-config.php:190
+msgid "Not found"
+msgstr ""
+
+#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:120
 msgid "Number of events"
 msgstr "Tapahtumien lukumäärä"
 
@@ -131,7 +131,7 @@ msgstr "Tapahtuma"
 msgid "Price"
 msgstr "Hinta"
 
-#: block/events.php:443
+#: block/events.php:466
 msgid "Price:"
 msgstr "Hinta:"
 
@@ -143,21 +143,29 @@ msgstr "Julkaisijat"
 msgid "Sat"
 msgstr "La"
 
-#: assets/admin/js/scripts.js:40 src/admin/js/block/events.js:30
+#: assets/admin/js/scripts.js:41 src/admin/js/block/events.js:31
 msgid "Select configuration"
 msgstr "Valitse määrittely"
 
-#: assets/admin/js/scripts.js:83 src/admin/js/block/events.js:73
+#: assets/admin/js/scripts.js:87 src/admin/js/block/events.js:75
 msgid "Settings"
 msgstr "Asetukset"
 
-#: block/events.php:282
+#: block/events.php:305
 msgid "Show more events"
 msgstr "Näytä lisää tapahtumia"
 
 #: class/Api/Entities/Event.php:188
 msgid "Sun"
 msgstr "Su"
+
+#: assets/admin/js/scripts.js:117 src/admin/js/block/events.js:112
+msgid ""
+"Tapahtumat.hel.fi web address, on the basis of which the listing is formed. "
+"For example,  "
+msgstr ""
+"Tapahtumat.hel.fi-sivuston verkko-osoite, jonka perusteella listaus "
+"muodostetaan. Esimerkiksi "
 
 #: class/Api/Entities/Event.php:185
 msgid "Thu"
@@ -168,14 +176,13 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "klo"
 
-#: block/events.php:403
+#: block/events.php:426
 #| msgid "Time"
 msgid "Time:"
 msgstr "Aika:"
 
-#: assets/admin/js/scripts.js:111 assets/admin/js/scripts.js:147
-#: assets/admin/js/scripts.js:107 assets/admin/js/scripts.js:143
-#: src/admin/js/block/events.js:109 src/admin/js/block/events.js:145
+#: assets/admin/js/scripts.js:137 assets/admin/js/scripts.js:173
+#: src/admin/js/block/events.js:136 src/admin/js/block/events.js:172
 msgid "Title"
 msgstr "Otsikko"
 

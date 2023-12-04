@@ -20,4 +20,13 @@ class Keywords extends FilterOptions {
 		return $filtered;
 	}
 
+	protected static function before_store_single( array $item ) {
+		$filtered = array();
+
+		$filtered['id'] = $item['id'];
+		$filtered['name'] = $item['name'];
+		
+		return $filtered;
+	}
+
 }

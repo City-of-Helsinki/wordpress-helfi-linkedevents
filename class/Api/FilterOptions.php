@@ -65,6 +65,32 @@ class FilterOptions extends Client {
 		return self::map_options( $filtered );
 	}
 
+	public static function option( string $id ) {
+		$items = (array) self::get(
+			static::$apiEndpoint . '/' . $id,
+			array()
+		);
+		
+		if ( ! $items ) {
+			return array();
+		}
+		$filtered = static::before_store_single($items);
+		return $filtered;
+	}
+
+	public static function search_first( string $search ) {
+		$items = (array) self::first(
+			static::$apiEndpoint,
+			array( 'text' => $search, 'page_size' => 1 )
+		);
+		
+		if ( ! $items ) {
+			return array();
+		}
+		$filtered = static::before_store_single($items);
+		return $filtered;
+	}
+
 	protected static function before_store( array $items ) {
 		return $items;
 	}

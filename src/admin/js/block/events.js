@@ -4,11 +4,12 @@
   	{ registerBlockType } = wp.blocks,
   	ServerSideRender = wp.serverSideRender,
   	{ useBlockProps } = wp.blockEditor,
-  	{ Fragment, createElement } = wp.element,
+  	{ Fragment, createElement, useEffect } = wp.element,
   	{ SelectControl, TextControl, PanelRow, PanelBody } = wp.components,
   	{ withSelect } = wp.data,
   	{ compose } = wp.compose,
   	{ InspectorControls } = wp.editor;
+
 
   const EventsConfigSelect = compose(withSelect(function(select, selectProps){
     return {posts: select('core').getEntityRecords(
@@ -59,6 +60,7 @@
     return [
       {label: 3, value: 3},
       {label: 5, value: 5},
+      {label: 10, value: 10},
     ];
   }
 
@@ -73,7 +75,7 @@
           title: __( 'Settings', 'helsinki-linkedevents' ),
           initialOpen: true,
         },
-        configSelectControl(props),
+        configURLControl(props),
         eventsCountControl(props)
       )
     );
@@ -83,6 +85,31 @@
     return createElement(
       PanelRow, {},
       createElement(EventsConfigSelect, props)
+    );
+  }
+
+  function configURLControl(props) {
+    return createElement(
+      Fragment, {},
+      createElement(TextControl, {
+        label: __( 'Event Listing URL', 'helsinki-linkedevents' ),
+        type: 'text',
+        value: props.attributes.configURL,
+        onChange: function(url) {
+          props.setAttributes({
+            configURL: url,
+          });
+        },
+      }),
+      configURLAssistiveText(props),
+    );
+  }
+
+  function configURLAssistiveText(props) {
+    return createElement(
+      PanelRow, {},
+      //Create an event listing URL at <a>https://tapahtumat.hel.fi/fi/haku</a>. Copy and paste the URL here.
+      createElement('small', { style: {color: 'grey', marginBottom: '1rem', marginTop: '-1rem' } }, __('Tapahtumat.hel.fi web address, on the basis of which the listing is formed. For example,  ', 'helsinki-linkedevents'), createElement('a', {href: 'https://tapahtumat.hel.fi/fi/haku?categories=music'}, 'https://tapahtumat.hel.fi/fi/haku?categories=music'), '.')
     );
   }
 
@@ -195,6 +222,30 @@
       props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
       props.attributes.blockId = props.clientId;
 
+      useEffect(function() {
+        if (props.attributes.configID != 0) {
+          wp.apiFetch({path: 'helsinki-linked-events/v1/config/' + props.attributes.configID}).then(function(data) {
+            //form a url using the config data
+            //base url is https://tapahtumat.hel.fi/fi/haku?
+            //parse the config data array as key=value pairs and add them to the url
+
+            var url = 'https://tapahtumat.hel.fi/fi/haku?';
+            var config = data;
+            var configKeys = Object.keys(config);
+            for (var i = 0; i < configKeys.length; i++) {
+              var key = configKeys[i];
+              var value = config[key];
+              url += key + '=' + value + '&';
+            }
+            props.setAttributes({
+              configURL: url,
+              configID: 0,
+            });
+          });
+        }
+      }, []);
+
+
       return createElement(
         Fragment, {},
         inspectorControls(props),
@@ -227,6 +278,10 @@
 				type: 'string',
 				default: 0,
 			},
+      configURL: {
+        type: 'string',
+        default: '',
+      },
       eventsCount: {
         type: 'number',
         default: 3,

@@ -24,8 +24,8 @@ function register() {
 		    ),
 	        'public'             => false,
 	        'publicly_queryable' => false,
-	        'show_ui'            => true,
-	        'show_in_menu'       => true,
+	        'show_ui'            => false,
+	        'show_in_menu'       => false,
 	        'capability_type'    => 'post',
 	        'has_archive'        => false,
 	        'hierarchical'       => false,
@@ -129,7 +129,7 @@ function render_metabox( $post, $metabox ) {
 	Plugin\metabox_view( 'linked-events-config', $filters );
 
 	if ( 'publish' === $post->post_status ) {
-		Plugin\metabox_view( 'linked-events-list', Events::entities( $post->ID ) );
+		Plugin\metabox_view( 'linked-events-list', Events::deprecated_entities( $post->ID ) );
 	}
 }
 
@@ -163,4 +163,34 @@ function delete_event_config( $postid, $post ) {
 	if ( 'linked_events_config' === $post->post_type ) {
 		CacheManager::clear( 'events-config-' . $postid );
 	}
+}
+
+
+//register_rest_route to fetch event config data
+add_action( 'rest_api_init', __NAMESPACE__ . '\\register_rest_routes' );
+function register_rest_routes() {
+	register_rest_route(
+		'helsinki-linked-events/v1',
+		'/config/(?P<id>\d+)',
+		array(
+			'methods' => 'GET',
+			'callback' => __NAMESPACE__ . '\\get_config',
+			'permission_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+		)
+	);
+}
+
+function get_config( $request ) {
+	$id = $request->get_param( 'id' );
+	$config = get_post( $id );
+
+	if ( ! $config || 'linked_events_config' !== $config->post_type ) {
+		return new \WP_Error( 'not_found', __( 'Not found', 'helsinki-linkedevents' ), array( 'status' => 404 ) );
+	}
+
+	$config = maybe_unserialize( $config->post_content );
+
+	return rest_ensure_response( $config );
 }

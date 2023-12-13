@@ -14,6 +14,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _wp$element = wp.element,
       Fragment = _wp$element.Fragment,
       createElement = _wp$element.createElement,
+      useEffect = _wp$element.useEffect,
       _wp$components = wp.components,
       SelectControl = _wp$components.SelectControl,
       TextControl = _wp$components.TextControl,
@@ -71,6 +72,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       label: 5,
       value: 5
+    }, {
+      label: 10,
+      value: 10
     }];
   }
   /**
@@ -82,11 +86,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return createElement(InspectorControls, {}, createElement(PanelBody, {
       title: __('Settings', 'helsinki-linkedevents'),
       initialOpen: true
-    }, configSelectControl(props), eventsCountControl(props)));
+    }, configURLControl(props), eventsCountControl(props)));
   }
 
   function configSelectControl(props) {
     return createElement(PanelRow, {}, createElement(EventsConfigSelect, props));
+  }
+
+  function configURLControl(props) {
+    return createElement(Fragment, {}, createElement(TextControl, {
+      label: __('Event Listing URL', 'helsinki-linkedevents'),
+      type: 'text',
+      value: props.attributes.configURL,
+      onChange: function onChange(url) {
+        props.setAttributes({
+          configURL: url
+        });
+      }
+    }), configURLAssistiveText(props));
+  }
+
+  function configURLAssistiveText(props) {
+    return createElement(PanelRow, {}, //Create an event listing URL at <a>https://tapahtumat.hel.fi/fi/haku</a>. Copy and paste the URL here.
+    createElement('small', {
+      style: {
+        color: 'grey',
+        marginBottom: '1rem',
+        marginTop: '-1rem'
+      }
+    }, __('Tapahtumat.hel.fi web address, on the basis of which the listing is formed. For example,  ', 'helsinki-linkedevents'), createElement('a', {
+      href: 'https://tapahtumat.hel.fi/fi/haku?categories=music'
+    }, 'https://tapahtumat.hel.fi/fi/haku?categories=music'), '.'));
   }
 
   function eventsCountControl(props) {
@@ -183,6 +213,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return function (props) {
       props.attributes.eventsCount = parseInt(props.attributes.eventsCount);
       props.attributes.blockId = props.clientId;
+      useEffect(function () {
+        if (props.attributes.configID != 0) {
+          wp.apiFetch({
+            path: 'helsinki-linked-events/v1/config/' + props.attributes.configID
+          }).then(function (data) {
+            //form a url using the config data
+            //base url is https://tapahtumat.hel.fi/fi/haku?
+            //parse the config data array as key=value pairs and add them to the url
+            var url = 'https://tapahtumat.hel.fi/fi/haku?';
+            var config = data;
+            var configKeys = Object.keys(config);
+
+            for (var i = 0; i < configKeys.length; i++) {
+              var key = configKeys[i];
+              var value = config[key];
+              url += key + '=' + value + '&';
+            }
+
+            props.setAttributes({
+              configURL: url,
+              configID: 0
+            });
+          });
+        }
+      }, []);
       return createElement(Fragment, {}, inspectorControls(props), preview(props));
     };
   }
@@ -211,6 +266,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       configID: {
         type: 'string',
         default: 0
+      },
+      configURL: {
+        type: 'string',
+        default: ''
       },
       eventsCount: {
         type: 'number',

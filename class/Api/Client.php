@@ -108,6 +108,14 @@ abstract class Client {
 		return $items;
 	}
 
+    public static function first( $path, $params = array() ) {
+        $response = self::get( $path, $params );
+        if ( ! empty( $response->data ) ) {
+            return $response->data[0];
+        }
+        return false;
+    }
+
 	protected static function map_entities( $type, $items ) {
 		$entities = array();
 		foreach ( $items as $item ) {

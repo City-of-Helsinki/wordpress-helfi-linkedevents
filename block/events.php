@@ -200,7 +200,7 @@ function render_events_grid( $attributes ) {
 	if (!empty($attributes['anchor'])) {
 		$id = 'id="'.esc_attr($attributes['anchor']).'"';
 		$id_value = esc_attr($attributes['anchor']);
-	}	
+	}
 	else if (!empty($attributes['blockId'])) {
 		$id = 'id="'.esc_attr($attributes['blockId']).'"';
 		$id_value = esc_attr($attributes['blockId']);
@@ -213,7 +213,7 @@ function render_events_grid( $attributes ) {
 	global $paged;
 	if ( empty( $paged ) ) {
 		$paged = 1;
-	}	  
+	}
 	$per_page = events_per_page($attributes['eventsCount']);
 	$offset = ( $paged - 1 ) * $per_page;
 
@@ -361,7 +361,6 @@ function render_event_card( $event ) {
 			'venue' => render_event_venue( $event ),
 			'price' => render_event_price( $event ),
 			'tags' => render_event_tags( $event ),
-			'more' => render_event_more( $event ),
 			'wrap_close' => '</div>',
 			'link_close' => '</a>',
 		),
@@ -483,17 +482,6 @@ function render_event_price( $event ) {
 	);
 }
 
-function render_event_more( $event ) {
-	return apply_filters(
-		'helsinki_linkedevents_event_more',
-		sprintf(
-			'<div class="event__more">%s</div>',
-			render_event_icon( 'link-external' )
-		),
-		$event
-	);
-}
-
 function render_event_icon( string $name ) {
 	return sprintf(
 		'<svg class="event__icon icon mask-icon icon--%s hds-icon--%s" viewBox="0 0 24 24" %s></svg>',
@@ -546,4 +534,3 @@ function render_event_section_label(string $name, string $id = '') {
 function event_get_random_id() {
 	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(20/strlen($x)) )),1,20);
 }
-

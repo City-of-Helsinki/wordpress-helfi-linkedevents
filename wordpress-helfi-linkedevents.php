@@ -3,7 +3,7 @@
 /**
   * Plugin Name: Helsinki Linked Events
   * Description: Integration with the Helsinki Linked Events API.
-  * Version: 1.13.0
+  * Version: 1.14.0
   * License: GPLv3
   * Requires at least: 5.7
   * Requires PHP:      7.1
@@ -21,12 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 textdomain();
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\init', 100 );
-function init() {
+function init(): void {
+	if ( ! function_exists('get_plugin_data') ) {
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	}
+
+    $plugin_data = get_plugin_data( $file, false, false );
 
 	/**
 	  * Constants
 	  */
-	define( __NAMESPACE__ . '\\PLUGIN_VERSION', '1.13.0' );
+	define( __NAMESPACE__ . '\\PLUGIN_VERSION', $plugin_data['Version'] );
 	define( __NAMESPACE__ . '\\PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 	define( __NAMESPACE__ . '\\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 	define( __NAMESPACE__ . '\\PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

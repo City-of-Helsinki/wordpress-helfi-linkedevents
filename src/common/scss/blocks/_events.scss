@@ -8,13 +8,12 @@
   width: 100vw;
   padding-top: 64px;
   padding-bottom: 64px;
+
   @extend %helsinki-block-spacing;
 
   @media screen and (min-width: 992px) {
-	margin-bottom: var(--spacing-4-xl);
+	  margin-bottom: var(--spacing-4-xl);
   }
-
-  .events__title {}
 
   .events__excerpt {
     margin-bottom: 0;
@@ -23,14 +22,10 @@
   .events__count {
     margin-bottom: 16px;
 
-    //not first-child
     &:not(:first-child) {
       @extend %helsinki-block-content-spacing;
-
     }
   }
-
-  .events__container {}
 
   .events__grid {
     margin-bottom: 24px;
@@ -52,29 +47,8 @@
       justify-content: left;
 
       .events__grid__item {
-        //flex: 0 0 calc(33% - 14px);
-
         .event {
           height: 100%;
-
-          .event__link {
-            display: flex;
-            height: 100%;
-            outline: none;
-
-            &:hover {
-              .event__title {
-                text-decoration: underline;
-              }
-            }
-
-            &:focus {
-              .event__title {
-                outline: 3px solid #1a1a1a;
-                outline-offset: 2px;
-              }
-            }
-          }
 
           .event__content {
             display: flex;
@@ -90,31 +64,29 @@
               align-self: flex-end;
             }
           }
-        }
-      }
+        } // .event
+      } // .events__grid__item
     }
 
-  }
+  } // .events__grid
 
   .events__more {
     margin: 0;
-
-    .button {}
   }
 
   .hds-pagination-container {
-
     .hds-pagination__pages {
       margin-top: 8px;
     }
-
   }
 
   .event {
+    display: flex;
     word-wrap: anywhere;
 
-    a {
-      text-decoration: none;
+    @media screen and (min-width: 576px) {
+      flex-direction: row-reverse;
+      gap: 16px;
     }
 
     p {
@@ -122,27 +94,21 @@
       word-break: break-word;
     }
 
-
-
     .event__image {
       overflow: hidden;
-      //padding-top: 64.4%;
       position: relative;
       width: 100%;
       margin-bottom: 16px;
 
       @media screen and (min-width: 576px) {
         margin-bottom: 0;
+        flex-basis: 30%;
+        flex-shrink: 0;
       }
 
-      img {
-        /*position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-height: 100%;
-        width: 100%;
-        max-width: none;*/
+      @media screen and (min-width: 576px) {
+        flex-direction: row-reverse;
+        gap: 16px;
       }
 
       .placeholder {
@@ -171,8 +137,12 @@
       }
     }
 
-    .event__content {
-
+    .event__link {
+      .event__icon {
+        display: inline;
+        margin: 0 0 0 0.5rem;
+        width: 24px;
+      }
     }
 
     .event__title {
@@ -198,10 +168,8 @@
       align-items: flex-start;
       display: flex;
 
-      > * {}
-
       label {
-          font-weight: 700;
+        font-weight: 700;
       }
 
       .event__icon {
@@ -213,17 +181,9 @@
       }
     }
 
-    .event__date {}
-
     .event__venue {
       font-style: normal;
       margin-bottom: 0;
-    }
-
-    .event__prices {
-
-      .price {}
-
     }
 
     .event__tags {
@@ -245,21 +205,6 @@
       margin-top: 16px;
       width: 100%;
     }
+  } // .event
 
-    @media screen and (min-width: 576px) {
-      .event__link {
-        flex-direction: row-reverse;
-        gap: 16px;
-
-        .event__image {
-          flex-basis: 30%;
-          flex-shrink: 0;
-        }
-  
-      }
-
-    }
-
-  }
-
-}
+} // .helsinki-events

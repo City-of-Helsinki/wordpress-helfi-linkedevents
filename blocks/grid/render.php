@@ -1,68 +1,14 @@
 <?php
 
-namespace CityOfHelsinki\WordPress\LinkedEvents\Blocks;
+declare(strict_types = 1);
 
-use CityOfHelsinki\WordPress\LinkedEvents as Plugin;
-use CityOfHelsinki\WordPress\LinkedEvents\Api\Events;
+namespace CityOfHelsinki\WordPress\LinkedEvents\Blocks\Grid;
 
-use WP_Block_Editor_Context;
-
-/**
-  * Config
-  */
-function blocks(): array {
-	return array(
-		'grid' => array(
-			'title' => __( 'Helsinki - Events', 'helsinki-linkedevents' ),
-			'category' => 'helsinki-linkedevents',
-			'dependencies' => array(
-				'wp-blocks',
-				'wp-i18n',
-				'wp-element',
-				'wp-components',
-				'wp-editor',
-				'wp-compose',
-				'wp-data',
-				'wp-server-side-render',
-			),
-			'render_callback' => __NAMESPACE__ . '\\render_events_grid',
-			'attributes' => array(
-				'configID' => array(
-					'type' => 'string',
-					'default' => 0,
-				),
-				'configURL' => array(
-					'type' => 'string',
-					'default' => '',
-				),
-				'eventsCount' => array(
-					'type' => 'number',
-					'default' => 3,
-				),
-				'title' => array(
-					'type' => 'string',
-					'default' => '',
-				),
-				'contentText' => array(
-					'type' => 'string',
-					'default' => '',
-				),
-				'anchor' => array(
-					'type'    => 'string',
-					'default' => '',
-				),
-				'blockId' => array(
-					'type'    => 'string',
-					'default' => '',
-				),
-				'isEditRender' => array(
-					'type'    => 'boolean',
-					'default' => false,
-				),
-			),
-		)
-	);
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
 }
+
+use CityOfHelsinki\WordPress\LinkedEvents\Api\Events;
 
 function events_per_page( $count ): int {
 	return (int) $count ?: 3;
@@ -77,115 +23,6 @@ function events_offset( int $per_page ): int {
 	return ( $paged - 1 ) * $per_page;
 }
 
-/**
-  * Register
-  */
-add_action( 'init', __NAMESPACE__ . '\\register' );
-function register(): void {
-	foreach ( blocks() as $block => $config ) {
-		register_block_type( "helsinki-linkedevents/{$block}", $config );
-	}
-}
-
-add_filter( 'block_categories_all', __NAMESPACE__ . '\\category', 10, 2 );
-function category( array $categories, $context ): array {
-	if ( ! ( $context instanceof WP_Block_Editor_Context ) ) {
-		return $categories;
-	}
-
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug' => 'helsinki-linkedevents',
-				'title' => __( 'Helsinki', 'helsinki-linkedevents' ),
-				'icon'  => 'calendar-alt',
-			),
-		)
-	);
-}
-
-/**
-  * Assets
-  */
-function block_dependencies() {
-	$dependencies = array();
-	foreach ( blocks() as $block => $config ) {
-		$dependencies = array_merge(
-			$dependencies,
-			$config['dependencies']
-		);
-	}
-	return array_unique( $dependencies, SORT_STRING );
-}
-
-add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_assets', 10 );
-function admin_assets( string $hook ) {
-	if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
-        return;
-    }
-
-	$base = Plugin\plugin_url();
-	$debug = Plugin\debug_enabled();
-	$version = $debug ? time() : Plugin\PLUGIN_VERSION;
-
-	wp_enqueue_script(
-		'helsinki-linkedevents-scripts',
-		$debug ? $base . 'assets/admin/js/scripts.js' : $base . 'assets/admin/js/scripts.min.js',
-		block_dependencies(),
-		$version,
-		true
-	);
-
-	wp_set_script_translations(
-        'helsinki-linkedevents-scripts',
-        'helsinki-linkedevents',
-        Plugin\plugin_path() . 'languages'
-    );
-
-	wp_enqueue_style(
-		'helsinki-linkedevents-tyles',
-		$debug ? $base . 'assets/admin/css/styles.css' : $base . 'assets/admin/css/styles.min.css',
-		array(),
-		$version,
-		'all'
-	);
-}
-
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\public_assets', 1 );
-function public_assets() {
-	$base = Plugin\plugin_url();
-	$debug = Plugin\debug_enabled();
-	$version = $debug ? time() : Plugin\PLUGIN_VERSION;
-
-	wp_enqueue_script(
-		'helsinki-linkedevents-scripts',
-		$debug ? $base . 'assets/public/js/scripts.js' : $base . 'assets/public/js/scripts.min.js',
-		array(),
-		$version,
-		true
-	);
-
-	wp_localize_script(
-		'helsinki-linkedevents-scripts',
-		'helsinkiLinkedEvents',
-        array(
-			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-		)
-	);
-
-	wp_enqueue_style(
-		'helsinki-linkedevents-styles',
-		$debug ? $base . 'assets/public/css/styles.css' : $base . 'assets/public/css/styles.min.css',
-		array( 'wp-block-library' ),
-		$version,
-		'all'
-	);
-}
-
-/**
-  * Rendering
-  */
 function map_block_attributes_to_events( array $attributes ): array {
 	if ( ! empty( $attributes['configURL'] ) ) {
 		return Events::current_language_entities( $attributes['configURL'] );
@@ -219,12 +56,12 @@ function determine_events_grid_elements( array $attributes ): array {
 	if ( ! $attributes['isEditRender'] ) {
 		$parts[] = render_events_title(
 			$attributes['title'] ?? '',
-			$attributes['configID']
+			(int) $attributes['configID']
 		);
 
 		$parts[] = render_events_excerpt(
 			$attributes['contentText'] ?? '',
-			$attributes['configID']
+			(int) $attributes['configID']
 		);
 	}
 
@@ -232,7 +69,7 @@ function determine_events_grid_elements( array $attributes ): array {
 
 	$parts[] = render_events_count(
 		count( $events ),
-		$attributes['configID']
+		(int) $attributes['configID']
 	);
 
 	$parts[] = render_events_container(
@@ -565,5 +402,5 @@ function render_event_section_label(string $name, string $id = ''): string {
 }
 
 function event_get_random_id(): string {
-	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(20/strlen($x)) )),1,20);
+	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', (int) ceil(20/strlen($x)) )),1,20);
 }

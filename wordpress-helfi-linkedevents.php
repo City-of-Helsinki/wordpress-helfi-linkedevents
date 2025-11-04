@@ -43,7 +43,7 @@ function init(): void {
 
 	spl_autoload_register( __NAMESPACE__ . '\\autoloader' );
 
-	require_once 'block/events.php';
+	require_once 'blocks/register.php';
 	require_once 'ajax/events.php';
   	require_once 'cpt/linked-events-config.php';
 

@@ -1,0 +1,53 @@
+{
+  "apiVersion": 2,
+  "icon": "calendar-alt",
+  "title": "Helsinki - Events",
+  "name": "helsinki-linkedevents/grid",
+  "keywords": [
+    "events",
+    "linked events",
+    "Helsinki - Events Grid"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "configID": {
+      "type": "string",
+      "default": "0"
+    },
+    "configURL": {
+      "type": "string",
+      "default": "0"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "contentText": {
+      "type": "string",
+      "default": ""
+    },
+    "eventsCount": {
+      "type": "number",
+      "default": 3
+    },
+    "isEditRender": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "file:block.js",
+  "editorStyle": "helsinki-linkedevents-editor-styles",
+  "style": "helsinki-linkedevents-styles",
+  "viewScript": "helsinki-linkedevents-scripts"
+}

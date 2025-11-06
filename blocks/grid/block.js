@@ -3,58 +3,10 @@
   const __ = wp.i18n.__,
   	{ registerBlockType } = wp.blocks,
   	ServerSideRender = wp.serverSideRender,
-  	{ useBlockProps } = wp.blockEditor,
+  	{ useBlockProps, RichText } = wp.blockEditor,
   	{ Fragment, createElement, useEffect } = wp.element,
   	{ SelectControl, TextControl, PanelRow, PanelBody } = wp.components,
-  	{ withSelect } = wp.data,
-  	{ compose } = wp.compose,
   	{ InspectorControls } = wp.editor;
-
-
-  const EventsConfigSelect = compose(withSelect(function(select, selectProps){
-    return {posts: select('core').getEntityRecords(
-      'postType',
-      'linked_events_config',
-      {
-        orderby : 'title',
-        order : 'asc',
-        per_page: 100,
-        status : 'publish',
-      }
-    )};
-  }))(function(props){
-
-    var options = [];
-    if ( props.posts ) {
-      options.push({
-        value: 0,
-        label: __( 'Select configuration', 'helsinki-linkedevents' )}
-      );
-
-      props.posts.forEach( function(post) {
-        options.push({
-          value:post.id,
-          label:post.title.rendered
-        });
-      });
-    } else {
-      options.push({
-        value: 0,
-        label: __( 'Loading', 'helsinki-linkedevents' )}
-      );
-    }
-
-    return createElement(SelectControl, {
-      label: __( 'Events configuration', 'helsinki-linkedevents' ),
-      value: props.attributes.configID,
-      onChange: function(id) {
-        props.setAttributes({
-          configID: id,
-        });
-      },
-      options: options,
-    });
-  });
 
   function eventCountOptions() {
     return [
@@ -78,13 +30,6 @@
         configURLControl(props),
         eventsCountControl(props)
       )
-    );
-  }
-
-  function configSelectControl(props) {
-    return createElement(
-      PanelRow, {},
-      createElement(EventsConfigSelect, props)
     );
   }
 
@@ -146,8 +91,7 @@
   }
 
   function hdsContentTextRich(props, config) {
-    return wp.element.createElement(
-      wp.blockEditor.RichText, {
+    return wp.element.createElement(RichText, {
         tagName: 'p',
         className: config.className ? config.className : 'content__text',
         value: config.textAttribute ? props.attributes[config.textAttribute] : props.attributes.contentText,
@@ -160,8 +104,7 @@
   }
 
   function hdsContentTitleRich(props, config) {
-    return wp.element.createElement(
-      wp.blockEditor.RichText, {
+    return createElement(RichText, {
         tagName: 'h2',
         className: config.className ? config.className : 'content__heading',
         value: config.titleAttribute ? props.attributes[config.titleAttribute] : props.attributes.contentTitle,
@@ -173,7 +116,7 @@
       },
     );
   }
-  
+
 
   /**
     * Elements
@@ -198,7 +141,7 @@
             createElement(ServerSideRender, {
               block: 'helsinki-linkedevents/grid',
               attributes: {...props.attributes, isEditRender: true},
-            })  
+            })
           )
         )
       );
@@ -254,60 +197,11 @@
     }
   }
 
-  function save() {
-    return function(props) {
-		return null;
-	  };
-	}
-
   /**
     * Register
     */
   registerBlockType('helsinki-linkedevents/grid', {
-		apiVersion: 2,
 		title: __( 'Helsinki - Events', 'helsinki-linkedevents' ),
-		category: 'helsinki-linkedevents',
-		icon: 'calendar-alt',
-		keywords: [ __( 'events', 'helsinki-linkedevents' ), 'linked events', 'Helsinki - Events Grid'],
-		supports: {
-			html: false,
-			anchor: true,
-		},
-		attributes: {
-			configID: {
-				type: 'string',
-				default: 0,
-			},
-      configURL: {
-        type: 'string',
-        default: '',
-      },
-      eventsCount: {
-        type: 'number',
-        default: 3,
-      },
-			title: {
-				type: 'string',
-				default: '',
-			},
-      contentText: {
-        type: 'string',
-        default: '',
-      },
-			anchor: {
-				type: 'string',
-				default: '',
-			},
-      blockId: {
-        type: 'string',
-      },
-      isEditRender: {
-        type: 'boolean',
-        default: false,
-      },
-
-
-		},
 		edit: edit(),
 	});
 

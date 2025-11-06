@@ -37,23 +37,6 @@ function register() {
 	);
 }
 
-add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_assets' );
-function admin_assets( $hook ) {
-	if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
-		return;
-	}
-
-	wp_enqueue_style( 'select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css' );
-	wp_enqueue_script( 'select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js', array('jquery') );
-	wp_enqueue_script(
-		'helsinki-linkedevents-select2',
-		Plugin\plugin_url() . 'assets/admin/js/select2.js',
-		array( 'jquery', 'select2' ),
-		Plugin\PLUGIN_VERSION,
-		true
-	);
-}
-
 add_filter( 'use_block_editor_for_post_type', __NAMESPACE__ . '\\disable_editor', 10, 2 );
 function disable_editor( $current_status, $post_type ) {
 	if ( 'linked_events_config' === $post_type ) {

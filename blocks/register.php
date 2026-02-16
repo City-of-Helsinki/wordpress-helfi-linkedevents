@@ -17,6 +17,16 @@ function init(): void {
 
 	\add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_assets', 10 );
 	\add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\public_assets', 1 );
+
+	\add_filter( 'helsinki_wp_allowed_blocks', __NAMESPACE__ . '\\provide_allowed_blocks', 10 );
+}
+
+function provide_allowed_blocks( array $blocks ): array {
+	if ( isset( $blocks['common'] ) ) {
+		$blocks['common']['helsinki-linkedevents/grid'] = true;
+	}
+
+	return $blocks;
 }
 
 function register_blocks(): void {

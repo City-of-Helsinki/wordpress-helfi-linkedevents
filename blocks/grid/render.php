@@ -82,10 +82,6 @@ function determine_events_grid_elements( array $attributes ): array {
 		determine_events_grid_id( $attributes )
 	);
 
-	// if ( count( $events ) > $per_page ) {
-	// 	$parts[] = render_load_more_events( $attributes['configID'] );
-	// }
-
 	return $parts;
 }
 
@@ -140,20 +136,6 @@ function render_events_count( int $count, int $configID ): string {
 		),
 		$count,
 		$configID
-	);
-}
-
-function render_load_more_events( int $configID ): string {
-	return sprintf(
-		'<p class="events__more">
-			<button class="button hds-button" type="button" data-paged="2" data-config="%d" data-action="helsinki_more_events">%s</button>
-		</p>',
-		$configID,
-		\apply_filters(
-			'helsinki_linkedevents_more_events_text',
-			esc_html__( 'Show more events', 'helsinki-linkedevents' ),
-			$configID
-		)
 	);
 }
 

@@ -82,10 +82,6 @@ function determine_events_grid_elements( array $attributes ): array {
 		determine_events_grid_id( $attributes )
 	);
 
-	// if ( count( $events ) > $per_page ) {
-	// 	$parts[] = render_load_more_events( $attributes['configID'] );
-	// }
-
 	return $parts;
 }
 
@@ -134,26 +130,12 @@ function render_events_count( int $count, int $configID ): string {
 	return \apply_filters(
 		'helsinki_linkedevents_block_count',
 		sprintf(
-			'<div class="events__count">%s %s</div>',
+			'<h3 class="events__count">%s %s</h3>',
 			esc_html( $count ),
 			esc_html_x( 'events', 'events text after count', 'helsinki-linkedevents' ),
 		),
 		$count,
 		$configID
-	);
-}
-
-function render_load_more_events( int $configID ): string {
-	return sprintf(
-		'<p class="events__more">
-			<button class="button hds-button" type="button" data-paged="2" data-config="%d" data-action="helsinki_more_events">%s</button>
-		</p>',
-		$configID,
-		\apply_filters(
-			'helsinki_linkedevents_more_events_text',
-			esc_html__( 'Show more events', 'helsinki-linkedevents' ),
-			$configID
-		)
 	);
 }
 
@@ -263,9 +245,9 @@ function render_event_title( $event ): string {
 	return \apply_filters(
 		'helsinki_linkedevents_event_title',
 		sprintf(
-			'<h3 class="event__title">
+			'<h4 class="event__title">
 				<a class="event__link" href="%s">%s %s</a>
-			</h3>',
+			</h4>',
 			\esc_url( $event->permalink() ),
 			\esc_html( $event->name() ),
 			render_event_icon( 'link-external' )

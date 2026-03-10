@@ -263,9 +263,9 @@ function render_event_title( $event ): string {
 	return \apply_filters(
 		'helsinki_linkedevents_event_title',
 		sprintf(
-			'<h3 class="event__title">
+			'<h4 class="event__title">
 				<a class="event__link" href="%s">%s %s</a>
-			</h3>',
+			</h4>',
 			\esc_url( $event->permalink() ),
 			\esc_html( $event->name() ),
 			render_event_icon( 'link-external' )

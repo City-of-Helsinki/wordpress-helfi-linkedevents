@@ -134,7 +134,7 @@ function render_events_count( int $count, int $configID ): string {
 	return \apply_filters(
 		'helsinki_linkedevents_block_count',
 		sprintf(
-			'<div class="events__count">%s %s</div>',
+			'<h3 class="events__count">%s %s</h3>',
 			esc_html( $count ),
 			esc_html_x( 'events', 'events text after count', 'helsinki-linkedevents' ),
 		),

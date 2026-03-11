@@ -73,8 +73,7 @@ class Entity {
 
 		return $this->key_value( $data, $this->current_language() )
 			?: $this->key_value( $data, $this->default_language() )
-			?: $this->key_value( $data, 'fi' )
-			?: null;
+			?: $this->key_value( $data, 'fi' );
 	}
 
 	protected function key_value( $data, $key )

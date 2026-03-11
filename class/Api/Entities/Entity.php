@@ -22,7 +22,8 @@ class Entity {
      *
      * @param mixed $entity_data Entity data.
      */
-    public function __construct( $entity_data ) {
+	public function __construct( $entity_data )
+	{
         if ( is_array( $entity_data ) ) {
             foreach ( $entity_data as $key => $value ) {
 				if ( in_array( $key, ['images', 'offers', 'keywords' ] ) ) {
@@ -38,27 +39,19 @@ class Entity {
 
     /**
      * Get current language
-     *
-     * @return bool|\PLL_Language|string
      */
-    public function current_language() {
-        if ( function_exists( 'pll_current_language' ) ) {
-            return \pll_current_language() ?? locale();
-        }
-        return locale();
-    }
+	public function current_language(): string
+	{
+	    return (string) \apply_filters( 'helsinki_linkedevents_current_language', '' );
+	}
 
     /**
      * Get default language
-     *
-     * @return bool|\PLL_Language|string
      */
-    public function default_language() {
-        if ( function_exists( 'pll_default_language' ) ) {
-            return \pll_default_language() ?? locale();
-        }
-        return locale();
-    }
+	public function default_language(): string
+	{
+	    return (string) \apply_filters( 'helsinki_linkedevents_default_language', '' );
+	}
 
     /**
      * Get key by language
@@ -68,37 +61,21 @@ class Entity {
      *
      * @return string|null
      */
-    protected function key_by_language( string $key, $entity_data = false ) {
-        $current_language = $this->current_language();
-        $default_language = $this->default_language();
-        $final_language_fallback = 'fi';
+	protected function key_by_language( string $key, $entity_data = false )
+	{
+		$data = $entity_data
+			? $this->key_value( $entity_data, $key )
+			: $this->key_value( $this->entity_data, $key );
 
-        if ( ! $entity_data ) {
-            $entity_data = $this->entity_data;
-        }
-
-		$data = $this->key_value( $entity_data, $key );
-		if ( ! $data ) {
-			return;
+		if ( $data ) {
+			return $this->key_value( $data, $this->current_language() )
+				?: $this->key_value( $data, $this->default_language() )
+				?: $this->key_value( $data, 'fi' );
 		}
+	}
 
-		$value = $this->key_value( $data, $current_language );
-		if ( $value ) {
-			return $value;
-		}
-
-		$value = $this->key_value( $data, $default_language );
-		if ( $value ) {
-			return $value;
-		}
-
-        $value = $this->key_value( $data, $final_language_fallback );
-        if ( $value ) {
-            return $value;
-        }
-    }
-
-	protected function key_value( $data, $key ) {
+	protected function key_value( $data, $key )
+	{
 		if ( is_object( $data ) ) {
 			return $data->$key ?? null;
 		}

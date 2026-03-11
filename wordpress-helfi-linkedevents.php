@@ -6,7 +6,7 @@
   * Version: 1.17.0
   * License: GPLv3
   * Requires at least: 5.7
-  * Requires PHP:      7.1
+  * Requires PHP:      7.4
   * Author: ArtCloud
   * Author URI: https://www.artcloud.fi
   * Text Domain: helsinki-linkedevents
@@ -20,21 +20,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 textdomain();
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\init', 100 );
+\add_action( 'plugins_loaded', __NAMESPACE__ . '\\init', 100 );
 function init(): void {
 	if ( ! function_exists('get_plugin_data') ) {
 		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	}
 
-    $plugin_data = get_plugin_data( __FILE__, false, false );
+    $plugin_data = \get_plugin_data( __FILE__, false, false );
 
 	/**
 	  * Constants
 	  */
 	define( __NAMESPACE__ . '\\PLUGIN_VERSION', $plugin_data['Version'] );
-	define( __NAMESPACE__ . '\\PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-	define( __NAMESPACE__ . '\\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-	define( __NAMESPACE__ . '\\PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+	define( __NAMESPACE__ . '\\PLUGIN_PATH', \plugin_dir_path( __FILE__ ) );
+	define( __NAMESPACE__ . '\\PLUGIN_URL', \plugin_dir_url( __FILE__ ) );
+	define( __NAMESPACE__ . '\\PLUGIN_BASENAME', \plugin_basename( __FILE__ ) );
+
+	unset( $plugin_data );
 
 	/**
 	  * Plugin parts
@@ -43,9 +45,30 @@ function init(): void {
 
 	spl_autoload_register( __NAMESPACE__ . '\\autoloader' );
 
+	/**
+	  * Providers
+	  */
+	\add_filter(
+		'helsinki_linkedevents_current_language',
+		__NAMESPACE__ . '\\current_language',
+	);
+
+	\add_filter(
+		'helsinki_linkedevents_default_language',
+		__NAMESPACE__ . '\\current_language',
+	);
+
+	/**
+	  * Features
+	  */
 	require_once 'blocks/register.php';
 	require_once 'ajax/events.php';
   	require_once 'cpt/linked-events-config.php';
+
+	/**
+	  * Integrations
+	  */
+	require_once 'integrations/polylang.php';
 
 	/**
 	  * Actions & filters
@@ -55,13 +78,13 @@ function init(): void {
 	/**
 	  * Plugin ready
 	  */
-	do_action( 'helsinki_linkedevents_init' );
+	\do_action( 'helsinki_linkedevents_init' );
 }
 
 function textdomain() {
-	load_plugin_textdomain(
+	\load_plugin_textdomain(
 		'helsinki-linkedevents',
 		false,
-		dirname( plugin_basename( __FILE__ ) ) . '/languages'
+		dirname( \plugin_basename( __FILE__ ) ) . '/languages'
 	);
 }

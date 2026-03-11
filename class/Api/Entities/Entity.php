@@ -67,13 +67,11 @@ class Entity {
 			? $this->key_value( $entity_data, $key )
 			: $this->key_value( $this->entity_data, $key );
 
-		if ( ! $data ) {
-			return;
+		if ( $data ) {
+			return $this->key_value( $data, $this->current_language() )
+				?: $this->key_value( $data, $this->default_language() )
+				?: $this->key_value( $data, 'fi' );
 		}
-
-		return $this->key_value( $data, $this->current_language() )
-			?: $this->key_value( $data, $this->default_language() )
-			?: $this->key_value( $data, 'fi' );
 	}
 
 	protected function key_value( $data, $key )

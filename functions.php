@@ -45,3 +45,7 @@ function autoloader( $class ) {
 		require_once $file;
 	}
 }
+
+function current_language(): string {
+	return substr( \get_locale(), 0, 2 );
+}

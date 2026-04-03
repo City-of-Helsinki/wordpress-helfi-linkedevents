@@ -3,7 +3,7 @@
 /**
   * Plugin Name: Helsinki Linked Events
   * Description: Integration with the Helsinki Linked Events API.
-  * Version: 1.17.0
+  * Version: 1.18.0
   * License: GPLv3
   * Requires at least: 5.7
   * Requires PHP:      7.4

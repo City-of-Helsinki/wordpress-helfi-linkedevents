@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 06:45+0000\n"
+"POT-Creation-Date: 2026-04-03 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.5.5; wp-5.8.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:502
+#: features/blocks/grid/render.php:339
 msgid "(Link leads to external service)"
 msgstr ""
 
@@ -28,7 +28,7 @@ msgstr ""
 msgid "ArtCloud"
 msgstr ""
 
-#: assets/admin/js/scripts.js:98 src/admin/js/block/events.js:95
+#: features/blocks/grid/block.js:40
 msgid "Event Listing URL"
 msgstr ""
 
@@ -36,24 +36,16 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:260 src/admin/js/block/events.js:271
-msgid "events"
-msgstr ""
-
-#: assets/admin/js/scripts.js:57 src/admin/js/block/events.js:48
-msgid "Events configuration"
-msgstr ""
-
-#: block/events.php:290
+#: features/blocks/grid/render.php:135
 msgctxt "events text after count"
 msgid "events"
 msgstr ""
 
-#: assets/admin/js/scripts.js:158 src/admin/js/block/events.js:157
+#: features/blocks/grid/block.js:101
 msgid "Excerpt"
 msgstr ""
 
-#: block/events.php:454 class/Api/Filters/Prices.php:12
+#: class/Api/Filters/Prices.php:12 features/blocks/grid/render.php:312
 msgid "Free"
 msgstr ""
 
@@ -61,12 +53,11 @@ msgstr ""
 msgid "Fri"
 msgstr ""
 
-#: block/events.php:95
+#: features/blocks/register.php:59
 msgid "Helsinki"
 msgstr ""
 
-#: block/events.php:16 assets/admin/js/scripts.js:257
-#: src/admin/js/block/events.js:268
+#: features/blocks/grid/block.js:204
 msgid "Helsinki - Events"
 msgstr ""
 
@@ -78,7 +69,7 @@ msgstr ""
 msgid "https://www.artcloud.fi"
 msgstr ""
 
-#: block/events.php:523
+#: features/blocks/grid/render.php:357
 msgid "Identifiers"
 msgstr ""
 
@@ -86,23 +77,19 @@ msgstr ""
 msgid "Integration with the Helsinki Linked Events API."
 msgstr ""
 
-#: cpt/linked-events-config.php:93
+#: features/cpt/linked-events-config.php:76
 msgid "Keywords"
 msgstr ""
 
-#: cpt/linked-events-config.php:97
+#: features/cpt/linked-events-config.php:80
 msgid "Languages"
 msgstr ""
 
-#: assets/admin/js/scripts.js:52 src/admin/js/block/events.js:43
-msgid "Loading"
-msgstr ""
-
-#: block/events.php:442
+#: features/blocks/grid/render.php:282
 msgid "Location:"
 msgstr ""
 
-#: cpt/linked-events-config.php:105
+#: features/cpt/linked-events-config.php:88
 msgid "Locations"
 msgstr ""
 
@@ -110,11 +97,11 @@ msgstr ""
 msgid "Mon"
 msgstr ""
 
-#: cpt/linked-events-config.php:190
+#: features/cpt/linked-events-config.php:173
 msgid "Not found"
 msgstr ""
 
-#: assets/admin/js/scripts.js:124 src/admin/js/block/events.js:120
+#: features/blocks/grid/block.js:65
 msgid "Number of events"
 msgstr ""
 
@@ -122,25 +109,25 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
-#: cpt/linked-events-config.php:22
+#: features/cpt/linked-events-config.php:22
 msgctxt "Post type general name"
 msgid "Events"
 msgstr ""
 
-#: cpt/linked-events-config.php:23
+#: features/cpt/linked-events-config.php:23
 msgctxt "Post type singular name"
 msgid "Event"
 msgstr ""
 
-#: cpt/linked-events-config.php:109
+#: features/cpt/linked-events-config.php:92
 msgid "Price"
 msgstr ""
 
-#: block/events.php:466
+#: features/blocks/grid/render.php:326
 msgid "Price:"
 msgstr ""
 
-#: cpt/linked-events-config.php:101
+#: features/cpt/linked-events-config.php:84
 msgid "Publishers"
 msgstr ""
 
@@ -148,23 +135,15 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: assets/admin/js/scripts.js:41 src/admin/js/block/events.js:31
-msgid "Select configuration"
-msgstr ""
-
-#: assets/admin/js/scripts.js:87 src/admin/js/block/events.js:75
+#: features/blocks/grid/block.js:27
 msgid "Settings"
-msgstr ""
-
-#: block/events.php:305
-msgid "Show more events"
 msgstr ""
 
 #: class/Api/Entities/Event.php:188
 msgid "Sun"
 msgstr ""
 
-#: assets/admin/js/scripts.js:117 src/admin/js/block/events.js:112
+#: features/blocks/grid/block.js:57
 msgid ""
 "Tapahtumat.hel.fi web address, on the basis of which the listing is formed. "
 "For example,  "
@@ -179,12 +158,11 @@ msgctxt "time of clock"
 msgid "at"
 msgstr ""
 
-#: block/events.php:426
+#: features/blocks/grid/render.php:266
 msgid "Time:"
 msgstr ""
 
-#: assets/admin/js/scripts.js:137 assets/admin/js/scripts.js:173
-#: src/admin/js/block/events.js:136 src/admin/js/block/events.js:172
+#: features/blocks/grid/block.js:81 features/blocks/grid/block.js:115
 msgid "Title"
 msgstr ""
 

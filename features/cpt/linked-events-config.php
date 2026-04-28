@@ -1,6 +1,6 @@
 <?php
 
-namespace CityOfHelsinki\WordPress\LinkedEvents\Cpt;
+namespace CityOfHelsinki\WordPress\LinkedEvents\Features\Cpt;
 
 use CityOfHelsinki\WordPress\LinkedEvents as Plugin;
 

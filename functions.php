@@ -49,3 +49,11 @@ function autoloader( $class ) {
 function current_language(): string {
 	return substr( \get_locale(), 0, 2 );
 }
+
+function textdomain(): void {
+	\load_plugin_textdomain(
+		'helsinki-linkedevents',
+		false,
+		dirname( \plugin_basename( __FILE__ ) ) . '/languages'
+	);
+}

@@ -1,8 +1,10 @@
 {
-  "apiVersion": 2,
+  "apiVersion": 3,
   "icon": "calendar-alt",
   "title": "Helsinki - Events",
   "name": "helsinki-linkedevents/grid",
+  "textdomain": "helsinki-linkedevents",
+  "category": "helsinki-linkedevents",
   "keywords": [
     "events",
     "linked events",
@@ -47,7 +49,6 @@
     }
   },
   "editorScript": "file:block.js",
-  "editorStyle": "helsinki-linkedevents-editor-styles",
-  "style": "helsinki-linkedevents-styles",
-  "viewScript": "helsinki-linkedevents-scripts"
+  "style": "file:style.css",
+  "viewScript": "file:view.js"
 }

@@ -3,7 +3,7 @@
 /**
   * Plugin Name: Helsinki Linked Events
   * Description: Integration with the Helsinki Linked Events API.
-  * Version: 1.17.0
+  * Version: 2.0.0
   * License: GPLv3
   * Requires at least: 5.7
   * Requires PHP:      7.4
@@ -19,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 
-textdomain();
 \add_action( 'plugins_loaded', __NAMESPACE__ . '\\init', 100 );
 function init(): void {
 	if ( ! function_exists('get_plugin_data') ) {
@@ -27,12 +26,13 @@ function init(): void {
 	}
 
     $plugin_data = \get_plugin_data( __FILE__, false, false );
+	$dir = \plugin_dir_path( __FILE__ );
 
 	/**
 	  * Constants
 	  */
 	define( __NAMESPACE__ . '\\PLUGIN_VERSION', $plugin_data['Version'] );
-	define( __NAMESPACE__ . '\\PLUGIN_PATH', \plugin_dir_path( __FILE__ ) );
+	define( __NAMESPACE__ . '\\PLUGIN_PATH', $dir );
 	define( __NAMESPACE__ . '\\PLUGIN_URL', \plugin_dir_url( __FILE__ ) );
 	define( __NAMESPACE__ . '\\PLUGIN_BASENAME', \plugin_basename( __FILE__ ) );
 
@@ -41,7 +41,7 @@ function init(): void {
 	/**
 	  * Plugin parts
 	  */
-	require_once 'functions.php';
+	require_once $dir . 'functions.php';
 
 	spl_autoload_register( __NAMESPACE__ . '\\autoloader' );
 
@@ -61,19 +61,13 @@ function init(): void {
 	/**
 	  * Features
 	  */
-	require_once 'blocks/register.php';
-	require_once 'ajax/events.php';
-  	require_once 'cpt/linked-events-config.php';
+	require_once $dir . 'features/blocks/register.php';
+  	require_once $dir . 'features/cpt/linked-events-config.php';
 
 	/**
 	  * Integrations
 	  */
-	require_once 'integrations/polylang.php';
-
-	/**
-	  * Actions & filters
-	  */
-	//add_action( 'init', __NAMESPACE__ . '\\textdomain' );
+	require_once $dir . 'integrations/polylang.php';
 
 	/**
 	  * Plugin ready
@@ -81,10 +75,4 @@ function init(): void {
 	\do_action( 'helsinki_linkedevents_init' );
 }
 
-function textdomain() {
-	\load_plugin_textdomain(
-		'helsinki-linkedevents',
-		false,
-		dirname( \plugin_basename( __FILE__ ) ) . '/languages'
-	);
-}
+\add_action( 'init', __NAMESPACE__ . '\\textdomain' );

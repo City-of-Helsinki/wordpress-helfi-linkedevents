@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CityOfHelsinki\WordPress\LinkedEvents\Blocks\Grid;
+namespace CityOfHelsinki\WordPress\LinkedEvents\Features\Blocks\Grid;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die();
@@ -94,7 +94,7 @@ function render_events_grid( array $attributes ): string {
 	return $attributes['isEditRender']
 		? implode( '', $parts )
 		: sprintf(
-			'<div id="%s" class="helsinki-events events">
+			'<div id="%s" class="wp-block-helsinki-linkedevents-grid helsinki-events events">
 				<div class="hds-container">%s</div>
 			</div>',
 			\esc_attr( determine_events_grid_id( $attributes ) ),

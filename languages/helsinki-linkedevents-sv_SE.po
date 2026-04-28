@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Helsinki Linked Events\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 11:49+0000\n"
-"PO-Revision-Date: 2023-09-22 05:56+0000\n"
+"PO-Revision-Date: 2026-04-03 11:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.6.0; wp-6.1.1\n"
 "X-Domain: helsinki-linkedevents"
 
-#: block/events.php:479
+#: features/blocks/grid/render.php:339
 msgid "(Link leads to external service)"
 msgstr "(Länk leder till extern tjänst)"
 
@@ -27,28 +27,24 @@ msgstr "Allt"
 msgid "ArtCloud"
 msgstr "ArtCloud"
 
+#: features/blocks/grid/block.js:40
+msgid "Event Listing URL"
+msgstr "URL för evenemangslista"
+
 #: views/metabox/linked-events-list.php:4
 msgid "Events"
 msgstr "Evenemang"
 
-#: assets/admin/js/scripts.js:204 src/admin/js/block/events.js:219
-msgid "events"
-msgstr "Evenemang"
-
-#: assets/admin/js/scripts.js:56 src/admin/js/block/events.js:47
-msgid "Events configuration"
-msgstr "Händelsekonfiguration"
-
-#: block/events.php:267
+#: features/blocks/grid/render.php:135
 msgctxt "events text after count"
 msgid "events"
 msgstr "evenemang"
 
-#: assets/admin/js/scripts.js:128 src/admin/js/block/events.js:130
+#: features/blocks/grid/block.js:101
 msgid "Excerpt"
 msgstr "Beskrivning"
 
-#: block/events.php:431 class/Api/Filters/Prices.php:12
+#: class/Api/Filters/Prices.php:12 features/blocks/grid/render.php:312
 msgid "Free"
 msgstr "Gratis"
 
@@ -56,13 +52,11 @@ msgstr "Gratis"
 msgid "Fri"
 msgstr "Fre"
 
-#: block/events.php:87
+#: features/blocks/register.php:59
 msgid "Helsinki"
 msgstr "Helsingfors"
 
-#: block/events.php:16 assets/admin/js/scripts.js:201
-#: src/admin/js/block/events.js:216
-#, fuzzy
+#: features/blocks/grid/block.js:204
 #| msgid "Helsinki - Events Grid"
 msgid "Helsinki - Events"
 msgstr "Helsingfors - Evenemang Grid"
@@ -75,7 +69,7 @@ msgstr "Helsingfors Linked Events"
 msgid "https://www.artcloud.fi"
 msgstr "https://www.artcloud.fi"
 
-#: block/events.php:500
+#: features/blocks/grid/render.php:357
 msgid "Identifiers"
 msgstr "Identifierare"
 
@@ -83,24 +77,20 @@ msgstr "Identifierare"
 msgid "Integration with the Helsinki Linked Events API."
 msgstr "Integration med Helsinki Linked Events API."
 
-#: cpt/linked-events-config.php:93
+#: features/cpt/linked-events-config.php:76
 msgid "Keywords"
 msgstr "Nyckelord"
 
-#: cpt/linked-events-config.php:97
+#: features/cpt/linked-events-config.php:80
 msgid "Languages"
 msgstr "Språk"
 
-#: assets/admin/js/scripts.js:51 src/admin/js/block/events.js:42
-msgid "Loading"
-msgstr "Lastning"
-
-#: block/events.php:419
+#: features/blocks/grid/render.php:282
 #| msgid "Location"
 msgid "Location:"
 msgstr "Plats:"
 
-#: cpt/linked-events-config.php:105
+#: features/cpt/linked-events-config.php:88
 msgid "Locations"
 msgstr "Platser"
 
@@ -108,7 +98,11 @@ msgstr "Platser"
 msgid "Mon"
 msgstr "Mån"
 
-#: assets/admin/js/scripts.js:94 src/admin/js/block/events.js:93
+#: features/cpt/linked-events-config.php:173
+msgid "Not found"
+msgstr "Inte hittad"
+
+#: features/blocks/grid/block.js:65
 msgid "Number of events"
 msgstr "Antal evenemang"
 
@@ -116,25 +110,25 @@ msgstr "Antal evenemang"
 msgid "Paid"
 msgstr "Betalt"
 
-#: cpt/linked-events-config.php:22
+#: features/cpt/linked-events-config.php:22
 msgctxt "Post type general name"
 msgid "Events"
 msgstr "Evenemang"
 
-#: cpt/linked-events-config.php:23
+#: features/cpt/linked-events-config.php:23
 msgctxt "Post type singular name"
 msgid "Event"
 msgstr "Evenemang"
 
-#: cpt/linked-events-config.php:109
+#: features/cpt/linked-events-config.php:92
 msgid "Price"
 msgstr "Pris"
 
-#: block/events.php:443
+#: features/blocks/grid/render.php:326
 msgid "Price:"
 msgstr "Pris:"
 
-#: cpt/linked-events-config.php:101
+#: features/cpt/linked-events-config.php:84
 msgid "Publishers"
 msgstr "Förlag"
 
@@ -142,21 +136,21 @@ msgstr "Förlag"
 msgid "Sat"
 msgstr "Lö"
 
-#: assets/admin/js/scripts.js:40 src/admin/js/block/events.js:30
-msgid "Select configuration"
-msgstr "Välj konfiguration"
-
-#: assets/admin/js/scripts.js:83 src/admin/js/block/events.js:73
+#: features/blocks/grid/block.js:27
 msgid "Settings"
 msgstr "Inställningar"
-
-#: block/events.php:282
-msgid "Show more events"
-msgstr "Visa fler evenemang"
 
 #: class/Api/Entities/Event.php:188
 msgid "Sun"
 msgstr "Sön"
+
+#: features/blocks/grid/block.js:57
+msgid ""
+"Tapahtumat.hel.fi web address, on the basis of which the listing is formed. "
+"For example,  "
+msgstr ""
+"Webbadressen Tapahtumat.hel.fi, som ligger till grund för listan. Till "
+"exempel,"
 
 #: class/Api/Entities/Event.php:185
 msgid "Thu"
@@ -167,13 +161,12 @@ msgctxt "time of clock"
 msgid "at"
 msgstr "kl."
 
-#: block/events.php:403
+#: features/blocks/grid/render.php:266
 #| msgid "Time"
 msgid "Time:"
 msgstr "Tid:"
 
-#: assets/admin/js/scripts.js:107 assets/admin/js/scripts.js:143
-#: src/admin/js/block/events.js:109 src/admin/js/block/events.js:145
+#: features/blocks/grid/block.js:81 features/blocks/grid/block.js:115
 msgid "Title"
 msgstr "Rubrik"
 

@@ -1,4 +1,4 @@
-import { mountLinkedEvents } from 'linkedevents-filter-list';
+import { mountLinkedEvents } from 'linkedevents-react-app';
 
 ((elements) => {
 

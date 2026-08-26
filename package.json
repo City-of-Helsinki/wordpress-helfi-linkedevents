@@ -1,0 +1,35 @@
+{
+  "name": "wordpress-helfi-linkedevents",
+  "version": "1.12.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "keywords": [],
+  "author": [
+    {
+      "name": "ArtCloud",
+      "email": "asiakaspalvelu@artcloud.fi",
+      "homepage": "https://www.artcloud.fi"
+    }
+  ],
+  "scripts": {
+    "rollup": "rollup -c -w"
+  },
+  "license": "GPLv3",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-syntax-jsx": "^7.28.6",
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-react": "^7.28.5",
+    "@rollup/plugin-babel": "^7.0.0",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "linkedevents-filter-list": "file:../../linkedevents-filter-list",
+    "rollup": "^4.60.3"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie 11"
+  ]
+}

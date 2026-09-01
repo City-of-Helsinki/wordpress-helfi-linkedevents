@@ -142,6 +142,8 @@
 }
 
 .helsinki-events .card .content-tags__tags {
+  --background-color:var(--color-black-10, #e6e6e6);
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

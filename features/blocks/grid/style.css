@@ -48,6 +48,7 @@
 
 .helsinki-events .card {
   background-color: var(--event-card-background-color, #fff);
+  cursor: pointer;
   padding: var(--event-card-padding, var(--spacing-s, 1rem));
   display:-webkit-box;
   display:-ms-flexbox;
@@ -208,26 +209,6 @@
 
 .helsinki-events .hds-pagination-container {
   margin-top: var(--spacing-l, 2rem);
-}
-
-.helsinki-events .hds-pagination-container .hds-button {
-  --button-background-color: transparent;
-  --button-border-color: transparent;
-  --button-color: var(--color-black, #000);
-  --button-icon-color: var(--button-color);
-}
-
-.helsinki-events .hds-pagination-container .hds-button:not([disabled]):hover {
-  text-decoration: underline;
-}
-
-.helsinki-events .hds-pagination-container .hds-button[disabled] {
-  --button-color: var(--color-black-40, #999);
-}
-
-.helsinki-events .hds-pagination-container .hds-button .hds-pagination__button-prev-label,
-.helsinki-events .hds-pagination-container .hds-button .hds-pagination__button-next-label {
-  color: var(--button-color);
 }
 
 .helsinki-events .see-all-button__container {

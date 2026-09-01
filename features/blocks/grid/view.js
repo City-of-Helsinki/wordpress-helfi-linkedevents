@@ -2,8 +2,6 @@
 
 (function (elements) {
   elements.forEach(element => {
-    element.style.cursor = 'pointer';
-
     var down, up, link;
 
     element.onmousedown = function (event) {
@@ -13,6 +11,10 @@
       }
 
       var card = event.target.closest('.react-search__list-container .card');
+      if (! card) {
+        return;
+      }
+
       link = card.querySelector('.card__link');
 
       return down = +new Date();

@@ -34,7 +34,7 @@ function render_events_grid( array $attributes ): string {
 		'path' => array(),
 		'events' => array(
 			'field_event_list_title' => $attributes['title'] ?? '',
-			'field_event_count' => 10,
+			'field_event_count' => (int) $attributes['eventsCount'] ?? 10,
 			'field_filter_keywords' => array(),
 			'events_public_url' => $attributes['configURL'],
 			'events_api_url' => add_query_arg(

@@ -1,25 +1,25 @@
 .wp-block-helsinki-linkedevents-grid {
-  --background-color: var(--color-silver-light, #f7f7f8);
-  --vertical-margin:var(--spacing-layout-s, 32px);
+  --background-color: var(--color-black-5, #f2f2f2);
+  --vertical-margin:var(--spacing-layout-s, 2rem);
 
   margin-top:var(--vertical-margin);
   margin-bottom:var(--vertical-margin);
 }
 
 .helsinki-events {
-  --event-cards-gap: var(--spacing-s, 16px);
+  --event-cards-gap: var(--spacing-s, 1rem);
 
   background-color:var(--background-color);
   margin-left:calc(50% - 50vw);
   margin-right:calc(50% - 50vw);
   max-width:100vw;
   width:100vw;
-  padding-top:64px;
-  padding-bottom:64px;
+  padding-top:4rem;
+  padding-bottom:4rem;
 }
 
 .helsinki-events .events__container:not(:first-child) {
-  margin-top:var(--spacing-m, 24px);
+  margin-top:var(--spacing-m, 1.5rem);
 }
 
 .helsinki-events .events__excerpt {
@@ -27,7 +27,7 @@
 }
 
 .helsinki-events .events__count {
-  margin-bottom:16px;
+  margin-bottom: 1rem;
 }
 
 .helsinki-events .events__grid {
@@ -38,17 +38,17 @@
   -webkit-box-direction:normal;
   -ms-flex-direction:column;
   flex-direction:column;
-  gap:16px;
-  margin-bottom:24px;
+  gap: var(--spacing-s, 1rem);
+  margin-bottom: var(--spacing-m, 1.5rem);
 }
 
 .helsinki-events .hds-pagination-container .hds-pagination__pages {
-  margin-top:8px;
+  margin-top: var(--spacing-2-xs, .5rem);
 }
 
 .helsinki-events .card {
   background-color: var(--event-card-background-color, #fff);
-  padding: var(--event-card-padding, var(--spacing-s, 16px));
+  padding: var(--event-card-padding, var(--spacing-s, 1rem));
   display:-webkit-box;
   display:-ms-flexbox;
   display:flex;
@@ -56,7 +56,7 @@
   -webkit-box-direction:normal;
   -ms-flex-direction:var(--event-card-direction, column);
   flex-direction:var(--event-card-direction, column);
-  gap:var(--event-card-flex-gap, var(--spacing-s, 16px));
+  gap:var(--event-card-flex-gap, var(--spacing-s, 1rem));
   word-wrap:anywhere;
 }
 
@@ -117,7 +117,7 @@
   -webkit-box-flex:1;
   -ms-flex-positive:1;
   flex-grow:1;
-  gap:var(--spacing-s, 16px);
+  gap:var(--spacing-s, 1rem);
 }
 
 .helsinki-events .card .card__text > * {
@@ -125,10 +125,10 @@
 }
 
 .helsinki-events .card .hel-icon {
-  -webkit-margin-end:var(--spacing-s, 16px);
-  margin-inline-end:var(--spacing-s, 16px);
-  width: var(--icon-size, 32px);
-  height: var(--icon-size, 32px);
+  -webkit-margin-end:var(--spacing-s, 1rem);
+  margin-inline-end:var(--spacing-s, 1rem);
+  width: var(--icon-size, 2rem);
+  height: var(--icon-size, 2rem);
 }
 
 .helsinki-events .card .card__link .link__type {
@@ -138,14 +138,14 @@
 }
 
 .helsinki-events .card .card__link .link__type .hel-icon {
-  --icon-size: 24px;
+  --icon-size: 1.5rem;
 }
 
 .helsinki-events .card .content-tags__tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--spacing-2-xs, .5rem);
   margin-block: 0;
   padding-inline-start: 0;
 }
@@ -170,20 +170,20 @@
 }
 
 .helsinki-events .card .card__meta + .card__meta {
-  margin-top: var(--spacing-2-xs, 8px);
+  margin-top: var(--spacing-2-xs, .5rem);
 }
 
 .helsinki-events .card .card__meta__label {
   flex: 0 0 auto;
   font-weight:700;
-  -webkit-margin-end:4px;
-  margin-inline-end:4px;
+  -webkit-margin-end:var(--spacing-3-xs, .25rem);
+  margin-inline-end:var(--spacing-3-xs, .25rem);
 }
 
 .helsinki-events .card .card__meta__icon {
   -webkit-box-flex:0;
-  -ms-flex:0 0 24px;
-  flex:0 0 24px;
+  -ms-flex:0 0 1.5rem;
+  flex:0 0 1.5rem;
 }
 
 .helsinki-events .card .event__venue {
@@ -196,7 +196,7 @@
   display:flex;
   -ms-flex-wrap:wrap;
   flex-wrap:wrap;
-  gap:8px;
+  gap: var(--spacing-2-xs, .5rem);
   list-style:none;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .helsinki-events .hds-pagination-container {
-  margin-top: var(--spacing-l, 32px);
+  margin-top: var(--spacing-l, 2rem);
 }
 
 .helsinki-events .hds-pagination-container .hds-button {
@@ -232,33 +232,37 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: var(--spacing-l, 32px);
-  margin-top: var(--spacing-l, 32px);
+  gap: var(--spacing-l, 2rem);
+  margin-top: var(--spacing-l, 2rem);
 }
 
-@media screen and (min-width:576px) {
+.helsinki-events .see-all-button__container .hds-button .link__type {
+  margin-inline-start: var(--spacing-2-xs, .5rem);
+}
+
+@media screen and (min-width:36rem) {
   .helsinki-events .card {
     --event-card-direction:row-reverse;
-    --event-card-flex-gap:24px;
+    --event-card-flex-gap: 1.5rem;
     --event-card-image-size:25%;
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:48rem) {
   .wp-block-helsinki-linkedevents-grid {
-    --vertical-margin:var(--spacing-layout-l, 64px);
+    --vertical-margin:var(--spacing-layout-l, 4rem);
   }
 
   .helsinki-events .events__container:not(:first-child) {
-    margin-top:var(--spacing-2-xl, 48px);
+    margin-top:var(--spacing-2-xl, 3rem);
   }
 
   .helsinki-events .card {
-    --event-card-padding: var(--spacing-m, 24px);
+    --event-card-padding: var(--spacing-m, 1.5rem);
   }
 
   .helsinki-events .hds-pagination-container {
-    margin-top: var(--spacing-4-xl, 64px);
+    margin-top: var(--spacing-4-xl, 4rem);
   }
 
   .helsinki-events .see-all-button__container {

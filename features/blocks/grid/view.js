@@ -2,18 +2,31 @@
 
 (function (elements) {
   elements.forEach(element => {
-    element.style.cursor = 'pointer';
-    var down,
-      up,
-      link = element.querySelector('.event__link');
-    element.onmousedown = function () {
+    var down, up, link;
+
+    element.onmousedown = function (event) {
+      if (event.target.nodeName === 'A') {
+        link = null;
+        return;
+      }
+
+      var card = event.target.closest('.react-search__list-container .card');
+      if (! card) {
+        return;
+      }
+
+      link = card.querySelector('.card__link');
+
       return down = +new Date();
     };
+
     element.onmouseup = function () {
-      up = +new Date();
-      if (up - down < 200) {
-        link.click();
+      if (link) {
+        up = +new Date();
+        if (up - down < 200) {
+          link.click();
+        }
       }
     };
   });
-})(document.querySelectorAll('.helsinki-events .event'));
+})(document.querySelectorAll('.helsinki-events .events__container'));

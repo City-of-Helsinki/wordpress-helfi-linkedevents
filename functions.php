@@ -2,15 +2,19 @@
 
 namespace CityOfHelsinki\WordPress\LinkedEvents;
 
-function debug_enabled() {
+function debug_enabled(): bool {
 	return defined( 'WP_DEBUG' ) && WP_DEBUG;
 }
 
-function plugin_path() {
+function plugin_version(): string {
+	return debug_enabled() ? (string) time() : PLUGIN_VERSION;
+}
+
+function plugin_path(): string {
 	return untrailingslashit( PLUGIN_PATH ) . DIRECTORY_SEPARATOR;
 }
 
-function views_path( string $dir = '' ) {
+function views_path( string $dir = '' ): string {
 	$path = plugin_path() . 'views' . DIRECTORY_SEPARATOR;
 	if ( $dir ) {
 		$path .= $dir . DIRECTORY_SEPARATOR;

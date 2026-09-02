@@ -50,5 +50,5 @@
   },
   "editorScript": "file:block.js",
   "style": "file:style.css",
-  "viewScript": "file:view.js"
+  "viewScript": [ "helsinki-linkedevents-app", "file:view.js" ]
 }

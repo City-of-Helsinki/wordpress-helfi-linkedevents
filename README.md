@@ -3,6 +3,8 @@ Integration with the [Helsinki Linked Events API](https://linkedevents.hel.fi/fi
 
 Registers a custom post type for storing API request configuration and a dynamic block, which renders the fetched events.
 
+[API docs](https://api.hel.fi/linkedevents/api-docs/)
+
 ## Dependencies
 
 ### Required

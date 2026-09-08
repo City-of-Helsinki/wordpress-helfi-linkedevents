@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use CityOfHelsinki\WordPress\LinkedEvents\Api\Filters\Keywords;
+use function CityOfHelsinki\WordPress\LinkedEvents\debug_enabled;
 
 function determine_events_grid_id( array $attributes ): string {
 	if ( ! empty( $attributes['anchor'] ) ) {
@@ -80,11 +81,24 @@ function render_events_grid( array $attributes ): string {
 
 function parse_event_params( string $url ): array
 {
-	$query = parse_url( $url, PHP_URL_QUERY );
+	try {
+		$query = parse_url( $url, PHP_URL_QUERY );
 
-	parse_str( html_entity_decode( $query ), $params );
+		if ( is_string( $query ) ) {
+			parse_str( html_entity_decode( $query ), $params );
 
-	return is_array( $params ) ? $params : array();
+			return is_array( $params ) ? $params : array();
+		}
+
+		return array();
+
+	} catch ( \Exception $exception ) {
+		if ( debug_enabled() ) {
+			error_log( $exception->getMessage() );
+		}
+
+		return array();
+	}
 }
 
 function event_params( string $url)

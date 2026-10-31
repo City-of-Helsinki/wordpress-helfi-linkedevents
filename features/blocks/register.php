@@ -29,6 +29,11 @@ function init(): void {
 }
 
 function enqueue_assets(): void {
+	// Load the icon style, see wordpress-helfi-hds-wp class Icons
+	foreach ( hds_icons_required() as $key ) {
+		do_action( 'hds_wp_use_icon', $key );
+	}
+
 	\wp_register_script(
 		'helsinki-linkedevents-app',
 		plugin_url() . 'assets/js/app.js',
@@ -38,6 +43,27 @@ function enqueue_assets(): void {
 		),
 		plugin_version(),
 		true
+	);
+}
+
+function hds_icons_required(): array {
+	return array(
+		'location',
+		'clock',
+		'calendar',
+		'ticket',
+		'locate',
+		'layers',
+		'group',
+		'globe',
+		'calendar',
+		'bell',
+		'info-circle',
+		'angle-up',
+		'angle-down',
+		'angle-left',
+		'angle-right',
+		'link-external',
 	);
 }
 

@@ -29,7 +29,7 @@ function init(): void {
 }
 
 function enqueue_assets(): void {
-	// Load the icon style, see wordpress-helfi-hds-wp class Icons
+	// Load the icon style, see wordpress-helfi-hds-wp
 	foreach ( hds_icons_required() as $key ) {
 		do_action( 'hds_wp_use_icon', $key );
 	}
